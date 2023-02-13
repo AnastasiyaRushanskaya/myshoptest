@@ -1,8 +1,14 @@
 import React from 'react';
 import FavoritesProductBox from './FavoritesProductBox';
 
-function FavoritesList({ products, removeFromFavorites, addToCart }) {
+function FavoritesList({
+  products,
+  addToCart,
+  checkIsInFavorites,
+  toggleInFavorites,
+}) {
   const items = products.map((item) => {
+    const inFavorites = checkIsInFavorites(item.id);
     return (
       <FavoritesProductBox
         key={item.id}
@@ -10,9 +16,8 @@ function FavoritesList({ products, removeFromFavorites, addToCart }) {
         name={item.name}
         cost={item.cost}
         src={item.src}
-        inCart={item.inCart}
-        inFavorites={item.inFavorites}
-        removeFromFavorites={removeFromFavorites}
+        inFavorites={inFavorites}
+        toggleInFavorites={toggleInFavorites}
         addToCart={addToCart}
         products={products}
       />

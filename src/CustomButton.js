@@ -9,15 +9,13 @@ function CustomButton({
   bottom,
   text,
   clickHandler,
-  id,
 }) {
   return (
     <button
-      onClick={() => clickHandler(id)}
+      onClick={clickHandler}
       style={{
         cursor: 'pointer',
-        display: 'block',
-        position: 'absolute',
+        display: 'inline-block',
         backgroundColor: 'black',
         color: 'white',
         border: 'none',

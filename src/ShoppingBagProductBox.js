@@ -1,6 +1,5 @@
 import React from 'react';
 import CustomButton from './CustomButton';
-import SizeOption from './SizeOption';
 import ProductImage from './ProductImage';
 import AddToFavoritesIcon from './AddToFavoritesIcon';
 import QuantityOption from './QuantityOption';
@@ -10,63 +9,56 @@ function ShoppingBagProductBox({
   cost,
   src,
   id,
-  inCart,
   removeFromCart,
   inFavorites,
-  removeFromFavorites,
-  addToFavorites,
+  size,
+  toggleInFavorites,
 }) {
   return (
     <div
       style={{
-        width: '100%',
-        height: 'fit-content',
-        display: 'block',
-        margin: '10px',
+        width: '220px',
+        height: '200px',
+        display: 'inline-block',
+        margin: '20px',
         position: 'relative',
         fontSize: '13px',
       }}
     >
-      <AddToFavoritesIcon
-        top='102px'
-        left='86px'
-        inFavorites={inFavorites}
-        id={id}
-        clickHandler={inFavorites ? removeFromFavorites : addToFavorites}
-      />
+      <p style={{ textAlign: 'center' }}>{name}</p>
+
       <ProductImage src={src} />
-      <span
+
+      <div
         style={{
-          position: 'absolute',
-          top: '-2px',
-          left: '86px',
-          fontSize: '0.9em',
+          width: 'auto',
+          marginLeft: '5px',
+          display: 'inline-block',
         }}
       >
-        {name}
-      </span>
-      <span
-        style={{
-          position: 'absolute',
-          top: '22px',
-          left: '86px',
-          fontSize: '1.1em',
-        }}
-      >
-        {cost}
-      </span>
-      <SizeOption top='46px' border='none' />
-      <QuantityOption top='72px' border='none' />
-      <CustomButton
-        width='fit-content'
-        height='20px'
-        text='remove'
-        top='99px'
-        left='110px'
-        clickHandler={removeFromCart}
-        inCart={inCart}
-        id={id}
-      />
+        <div
+          style={{
+            fontSize: '1.2em',
+          }}
+        >
+          {cost}
+        </div>
+        <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+          Size: {size}
+        </div>
+        <QuantityOption top='72px' border='none' />
+        <br />
+        <AddToFavoritesIcon
+          inFavorites={inFavorites}
+          clickHandler={() => toggleInFavorites(id)}
+        />{' '}
+        <CustomButton
+          width='fit-content'
+          text='remove'
+          clickHandler={removeFromCart}
+          id={id}
+        />
+      </div>
     </div>
   );
 }
