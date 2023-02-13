@@ -15,12 +15,12 @@ function App() {
   const [cart, setCart] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
-  const [message, setMessage] = useState('');
+  const [sizeErrorMessage, setSizeErrorMessage] = useState('');
 
   useEffect(() => {
-    let timerId = setTimeout(() => setMessage(null), 4000);
+    let timerId = setTimeout(() => setSizeErrorMessage(null), 4000);
     return () => clearTimeout(timerId);
-  }, [message]);
+  }, [sizeErrorMessage]);
 
   function searchNavigationResults(tag) {
     if (tag === 'All products') {
@@ -41,7 +41,7 @@ function App() {
 
   function addToCart(id, size) {
     if (size === '') {
-      setMessage('Please select size');
+      setSizeErrorMessage('Please select size');
       return;
     }
 
@@ -92,7 +92,7 @@ function App() {
   return (
     <>
       {' '}
-      {message && (
+      {sizeErrorMessage && (
         <div
           style={{
             textAlign: 'center',
@@ -113,7 +113,7 @@ function App() {
           {' '}
           <i className='bi bi-patch-exclamation'></i>
           {'  '}
-          {message}
+          {sizeErrorMessage}
         </div>
       )}{' '}
       <BrowserRouter>
@@ -157,6 +157,7 @@ function App() {
               element={
                 <ShoppingBag
                   products={cart}
+                  width='800px'
                   removeFromCart={removeFromCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
@@ -168,6 +169,7 @@ function App() {
               element={
                 <FavoritesBox
                   products={favorites}
+                  width='800px'
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}

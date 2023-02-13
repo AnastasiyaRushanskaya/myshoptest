@@ -8,12 +8,14 @@ function ShoppingBag({
   removeFromCart,
   checkIsInFavorites,
   toggleInFavorites,
+  width,
 }) {
   return (
     <div
       style={{
-        width: '350px',
-        minHeight: '350px',
+        width: width,
+        marginBottom: '20px',
+        minHeight: '250px',
       }}
     >
       <h4 style={{ margin: '0px', textAlign: 'center' }}>
@@ -24,7 +26,8 @@ function ShoppingBag({
         removeFromCart={removeFromCart}
         toggleInFavorites={toggleInFavorites}
         checkIsInFavorites={checkIsInFavorites}
-      />
+      />{' '}
+      <br />
       {products.length !== 0 && (
         <Link to='/shoppingBag'>
           <CustomButton

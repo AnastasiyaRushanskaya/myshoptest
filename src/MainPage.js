@@ -2,7 +2,8 @@ import Header from './Header';
 import NavigationList from './Navigationlist';
 import ShoppingBag from './ShoppingBag';
 import FavoritesBox from './FavoritesBox';
-import { Outlet } from 'react-router-dom';
+import Footer from './Footer';
+import { Outlet, useLocation } from 'react-router-dom';
 
 function MainPage({
   cart,
@@ -16,6 +17,9 @@ function MainPage({
   addToCart,
   clearFavoritesBox,
 }) {
+  const inShoppingBagpage = useLocation().pathname === '/shoppingBag';
+  const inFavoritesPage = useLocation().pathname === '/favorites';
+
   return (
     <div>
       <Header text='My Shop' products={cart} />
@@ -35,21 +39,28 @@ function MainPage({
         <Outlet />
       </div>
       <div style={{ display: 'inline-block', verticalAlign: 'text-top' }}>
-        <ShoppingBag
-          products={cart}
-          removeFromCart={removeFromCart}
-          toggleInFavorites={toggleInFavorites}
-          checkIsInFavorites={checkIsInFavorites}
-        />
+        {!inShoppingBagpage && (
+          <ShoppingBag
+            products={cart}
+            width='350px'
+            removeFromCart={removeFromCart}
+            toggleInFavorites={toggleInFavorites}
+            checkIsInFavorites={checkIsInFavorites}
+          />
+        )}
 
-        <FavoritesBox
-          products={favorites}
-          addToCart={addToCart}
-          toggleInFavorites={toggleInFavorites}
-          checkIsInFavorites={checkIsInFavorites}
-          clearFavoritesBox={clearFavoritesBox}
-        />
+        {!inFavoritesPage && (
+          <FavoritesBox
+            products={favorites}
+            width='350px'
+            addToCart={addToCart}
+            toggleInFavorites={toggleInFavorites}
+            checkIsInFavorites={checkIsInFavorites}
+            clearFavoritesBox={clearFavoritesBox}
+          />
+        )}
       </div>
+      <Footer />
     </div>
   );
 }

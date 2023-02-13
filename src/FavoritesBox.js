@@ -8,11 +8,12 @@ function FavoritesBox({
   addToCart,
   checkIsInFavorites,
   clearFavoritesBox,
+  width,
 }) {
   return (
     <div
       style={{
-        width: '350px',
+        width: width,
         height: 'auto',
       }}
     >
@@ -25,6 +26,7 @@ function FavoritesBox({
         checkIsInFavorites={checkIsInFavorites}
         addToCart={addToCart}
       />
+      <br />
       {products.length !== 0 && (
         <CustomButton
           width='100%'

@@ -3,6 +3,7 @@ import CustomButton from './CustomButton';
 import SizeOption from './SizeOption';
 import ProductImage from './ProductImage';
 import AddToFavoritesIcon from './AddToFavoritesIcon';
+import { useState } from 'react';
 
 function FavoritesProductBox({
   name,
@@ -12,9 +13,14 @@ function FavoritesProductBox({
   inFavorites,
   addToCart,
   toggleInFavorites,
-  size,
+  // size,
   changeSizeHandler,
 }) {
+  const [size, setSize] = useState('');
+
+  function changeSizeHandler(event) {
+    setSize(event.target.value);
+  }
   return (
     <div
       style={{

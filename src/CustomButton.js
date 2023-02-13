@@ -21,6 +21,7 @@ function CustomButton({
         border: 'none',
         borderRadius: '6px',
         width: width,
+        maxWidth: '350px',
         height: height,
         top: top,
         right: right,
