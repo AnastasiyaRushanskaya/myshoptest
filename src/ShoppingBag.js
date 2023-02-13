@@ -1,41 +1,38 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CustomButton from './CustomButton';
 import ShoppingBagList from './ShoppingBagList';
 
 function ShoppingBag({
   products,
   removeFromCart,
-  removeFromFavorites,
-  addToFavorites,
+  checkIsInFavorites,
+  toggleInFavorites,
 }) {
   return (
     <div
       style={{
-        minWidth: '350px',
-        height: 'auto',
-        position: 'absolute',
-        right: '50px',
-        top: '70px',
-        margin: '20px',
+        width: '350px',
+        minHeight: '350px',
       }}
     >
-      <h4 style={{ marginTop: '0px', textAlign: 'center' }}>
+      <h4 style={{ margin: '0px', textAlign: 'center' }}>
         <i className='bi bi-bag-check'></i> Shopping bag ({products.length})
       </h4>
       <ShoppingBagList
         products={products}
         removeFromCart={removeFromCart}
-        removeFromFavorites={removeFromFavorites}
-        addToFavorites={addToFavorites}
+        toggleInFavorites={toggleInFavorites}
+        checkIsInFavorites={checkIsInFavorites}
       />
       {products.length !== 0 && (
-        <CustomButton
-          width='190px'
-          height='30px'
-          text='continue to checkout'
-          bottom='-40px'
-          left='80px'
-        />
+        <Link to='/shoppingBag'>
+          <CustomButton
+            width='100%'
+            height='30px'
+            text='continue to checkout'
+          />
+        </Link>
       )}
     </div>
   );

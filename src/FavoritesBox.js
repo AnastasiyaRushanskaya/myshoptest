@@ -2,34 +2,35 @@ import React from 'react';
 import CustomButton from './CustomButton';
 import FavoritesList from './FavoritesList';
 
-function FavoritesBox({ products, removeFromFavorites, addToCart }) {
+function FavoritesBox({
+  products,
+  toggleInFavorites,
+  addToCart,
+  checkIsInFavorites,
+  clearFavoritesBox,
+}) {
   return (
     <div
       style={{
-        minWidth: '350px',
+        width: '350px',
         height: 'auto',
-        position: 'absolute',
-        right: '50px',
-        top: '470px',
-        margin: '20px',
       }}
     >
-      <h4 style={{ marginTop: '0px', textAlign: 'center' }}>
+      <h4 style={{ margin: '0px', textAlign: 'center' }}>
         <i className='bi bi-bag-heart'></i> Your Favorites ({products.length})
       </h4>
       <FavoritesList
         products={products}
-        removeFromFavorites={removeFromFavorites}
+        toggleInFavorites={toggleInFavorites}
+        checkIsInFavorites={checkIsInFavorites}
         addToCart={addToCart}
       />
       {products.length !== 0 && (
         <CustomButton
-          width='190px'
+          width='100%'
           height='30px'
           text='clear all'
-          bottom='-40px'
-          //   right='0px'
-          left='80px'
+          clickHandler={clearFavoritesBox}
         />
       )}
     </div>

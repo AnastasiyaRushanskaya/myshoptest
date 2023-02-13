@@ -1,4 +1,5 @@
 const menuList = [
+  'All products',
   'New Arrivals',
   'Trending now',
   'BestSellers',

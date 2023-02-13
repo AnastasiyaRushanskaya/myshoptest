@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CustomButton from './CustomButton';
 import SizeOption from './SizeOption';
 import ProductImage from './ProductImage';
@@ -9,12 +9,16 @@ function ProductBox({
   cost,
   src,
   id,
-  inCart,
   inFavorites,
   addToCart,
-  addToFavorites,
-  removeFromFavorites,
+  toggleInFavorites,
 }) {
+  const [size, setSize] = useState('');
+
+  function changeSizeHandler(event) {
+    setSize(event.target.value);
+  }
+
   return (
     <div
       style={{
@@ -26,38 +30,37 @@ function ProductBox({
         fontSize: '13px',
       }}
     >
-      <p style={{ textAlign: 'center' }}>{name}</p>
+      <p style={{ textAlign: 'center', marginTop: '5px' }}>{name}</p>
 
-      <AddToFavoritesIcon
-        top='143px'
-        left='85px'
-        inFavorites={inFavorites}
-        id={id}
-        clickHandler={inFavorites ? removeFromFavorites : addToFavorites}
-      />
       <ProductImage src={src} />
-      <span
+      <div
         style={{
-          position: 'absolute',
-          top: '38px',
-          left: '86px',
-          fontSize: '1.2em',
+          width: 'auto',
+          marginLeft: '5px',
+          display: 'inline-block',
         }}
       >
-        {cost}
-      </span>
-      <SizeOption top='78px' />
-
-      <CustomButton
-        width='70px'
-        height='20px'
-        text='add'
-        top='140px'
-        left='103px'
-        clickHandler={addToCart}
-        inCart={inCart}
-        id={id}
-      />
+        <span
+          style={{
+            display: 'block',
+            fontSize: '1.2em',
+          }}
+        >
+          {cost}
+        </span>
+        <SizeOption selectSize={changeSizeHandler} size={size} />
+        <br />
+        <AddToFavoritesIcon
+          inFavorites={inFavorites}
+          clickHandler={() => toggleInFavorites(id)}
+        />{' '}
+        <CustomButton
+          width='70px'
+          text='add'
+          clickHandler={() => addToCart(id, size)}
+          id={id}
+        />
+      </div>
     </div>
   );
 }

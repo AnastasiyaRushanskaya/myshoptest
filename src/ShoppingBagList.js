@@ -4,23 +4,23 @@ import ShoppingBagProductBox from './ShoppingBagProductBox';
 function ShoppingBagList({
   products,
   removeFromCart,
-  removeFromFavorites,
-  addToFavorites,
+  toggleInFavorites,
+  checkIsInFavorites,
 }) {
-  const items = products.map((item) => {
+  const items = products.map((item, index) => {
+    const inFavorites = checkIsInFavorites(item.id);
     return (
       <ShoppingBagProductBox
-        key={item.id}
+        key={index}
         id={item.id}
         name={item.name}
+        size={item.size}
         cost={item.cost}
         src={item.src}
-        inCart={item.inCart}
-        inFavorites={item.inFavorites}
-        removeFromCart={removeFromCart}
-        removeFromFavorites={removeFromFavorites}
-        addToFavorites={addToFavorites}
+        inFavorites={inFavorites}
+        removeFromCart={() => removeFromCart(index)}
         products={products}
+        toggleInFavorites={toggleInFavorites}
       />
     );
   });

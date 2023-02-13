@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const sizesArray = ['Select size', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
-function SizeOption({ top, border }) {
-  const [sizes, setSizes] = useState(sizesArray);
-  const [value, setSizeValue] = useState('');
-
-  const sixeOptions = sizes.map((sizeOption, index) => {
+function SizeOption({ border, selectSize, size }) {
+  const sizeOptions = sizesArray.map((sizeOption, index) => {
     return <option key={index}>{sizeOption}</option>;
   });
   return (
     <select
-      value={value}
-      onChange={(event) => setSizeValue(event.target.value)}
+      value={size}
+      onChange={selectSize}
       style={{
-        position: 'absolute',
-        top: top,
-        left: '86px',
+        marginBottom: '70px',
+        marginTop: '40px',
         height: '20px',
         borderRadius: '5px',
         outline: 'none',
@@ -24,7 +20,7 @@ function SizeOption({ top, border }) {
         backgroundColor: '#faf9f8',
       }}
     >
-      {sixeOptions}
+      {sizeOptions}
     </select>
   );
 }

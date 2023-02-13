@@ -4,10 +4,11 @@ import ProductBox from './ProductBox';
 function ProductList({
   products,
   addToCart,
-  addToFavorites,
-  removeFromFavorites,
+  toggleInFavorites,
+  checkIsInFavorites,
 }) {
   const items = products.map((item) => {
+    const inFavorites = checkIsInFavorites(item.id);
     return (
       <ProductBox
         key={item.id}
@@ -15,11 +16,11 @@ function ProductList({
         name={item.name}
         cost={item.cost}
         src={item.src}
+        category={item.category}
         inCart={item.inCart}
-        inFavorites={item.inFavorites}
+        inFavorites={inFavorites}
         addToCart={addToCart}
-        addToFavorites={addToFavorites}
-        removeFromFavorites={removeFromFavorites}
+        toggleInFavorites={toggleInFavorites}
       />
     );
   });

@@ -13,4 +13,17 @@ code {
     monospace;
 }
 
+.linkStyles {
+  border-bottom: 1px solid #faf9f8;
+  text-decoration: none;
+}
+
+.linkStyles:visited {
+  color: black;
+}
+
+.linkStyles:hover {
+  border-bottom: 1px solid black;
+}
+
 @import 'bootstrap-icons/font/bootstrap-icons.css';

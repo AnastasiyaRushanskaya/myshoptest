@@ -9,61 +9,53 @@ function FavoritesProductBox({
   cost,
   src,
   id,
-  inCart,
   inFavorites,
   addToCart,
-  removeFromFavorites,
+  toggleInFavorites,
+  size,
+  changeSizeHandler,
 }) {
   return (
     <div
       style={{
-        width: '100%',
-        height: 'fit-content',
-        display: 'block',
-        margin: '10px',
+        width: '220px',
+        height: '200px',
+        display: 'inline-block',
+        margin: '20px',
         position: 'relative',
         fontSize: '13px',
       }}
     >
-      <AddToFavoritesIcon
-        top='102px'
-        left='86px'
-        clickHandler={removeFromFavorites}
-        inFavorites={inFavorites}
-        id={id}
-      />
+      <p style={{ textAlign: 'center' }}>{name}</p>
       <ProductImage src={src} />
-      <span
+
+      <div
         style={{
-          position: 'absolute',
-          top: '0px',
-          left: '86px',
-          fontSize: '0.9em',
+          width: 'auto',
+          marginLeft: '5px',
         }}
       >
-        {name}
-      </span>
-      <span
-        style={{
-          position: 'absolute',
-          top: '25px',
-          left: '86px',
-          fontSize: '1.1em',
-        }}
-      >
-        {cost}
-      </span>
-      <SizeOption top='58px' border='none' />
-      <CustomButton
-        width='70px'
-        height='20px'
-        text='add'
-        top='99px'
-        left='110px'
-        clickHandler={addToCart}
-        inCart={inCart}
-        id={id}
-      />
+        <span
+          style={{
+            display: 'block',
+            fontSize: '1.2em',
+          }}
+        >
+          {cost}
+        </span>
+        <SizeOption selectSize={changeSizeHandler} size={size} />
+        <br />
+        <AddToFavoritesIcon
+          inFavorites={inFavorites}
+          clickHandler={() => toggleInFavorites(id)}
+        />{' '}
+        <CustomButton
+          width='70px'
+          text='add'
+          clickHandler={() => addToCart(id, size)}
+          //   id={id}
+        />
+      </div>
     </div>
   );
 }

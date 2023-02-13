@@ -1,18 +1,13 @@
 import React from 'react';
 import menuList from './menuList';
+import SearchBox from './SearchBox';
 
-function menuListClickHandler(event) {
-  if (event.target.value === 'Skirts') {
-    return alert('ololo');
-  } else console.log(event.target);
-}
-
-function NavigationList() {
+function NavigationList({ searchNavigationResults, startSearch, searchValue }) {
   const items = menuList.map((item, index) => {
     return (
       <li
         key={index}
-        onClick={(event) => menuListClickHandler(event)}
+        onClick={(event) => searchNavigationResults(event.target.textContent)}
         style={{
           listStyleType: 'none',
           paddingBottom: '30px',
@@ -23,7 +18,19 @@ function NavigationList() {
       </li>
     );
   });
-  return <ul style={{ position: 'absolute', top: '120px' }}>{items}</ul>;
+  return (
+    <div
+      style={{
+        width: '230px',
+        display: 'inline-block',
+        verticalAlign: 'text-top',
+      }}
+    >
+      <SearchBox startSearch={startSearch} searchValue={searchValue} />
+
+      <ul>{items}</ul>
+    </div>
+  );
 }
 
 export default NavigationList;
