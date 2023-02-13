@@ -29,7 +29,7 @@ function Header({ text, products }) {
             <i className='bi bi-person'></i> Sign in
           </span>
         </Link>
-        <Link to='/' className='linkStyles'>
+        <Link to='/favorites' className='linkStyles'>
           <span style={{ padding: '7px' }}>
             <i className='bi bi-heart'></i> Favorites
           </span>

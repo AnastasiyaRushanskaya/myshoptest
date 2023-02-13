@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-
 import productArray from './productList';
 import ProductList from './ProductsList';
 import React from 'react';
-import ShoppingBagPage from './ShoppingBagPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
+import FavoritesBox from './FavoritesBox';
+import ShoppingBag from './ShoppingBag';
 
 function App() {
   const [products, setProducts] = useState(productArray);
@@ -155,11 +155,23 @@ function App() {
             <Route
               path='/shoppingBag'
               element={
-                <ShoppingBagPage
-                  cart={cart}
+                <ShoppingBag
+                  products={cart}
                   removeFromCart={removeFromCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/favorites'
+              element={
+                <FavoritesBox
+                  products={favorites}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                  clearFavoritesBox={clearFavoritesBox}
                 />
               }
             />
