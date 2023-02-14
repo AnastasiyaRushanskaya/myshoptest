@@ -59,7 +59,7 @@ function FavoritesProductBox({
           width='70px'
           text='add'
           clickHandler={() => addToCart(id, size)}
-          //   id={id}
+          iconName='bi bi-bag'
         />
       </div>
     </div>

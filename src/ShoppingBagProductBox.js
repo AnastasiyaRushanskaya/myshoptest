@@ -57,6 +57,7 @@ function ShoppingBagProductBox({
           text='remove'
           clickHandler={removeFromCart}
           id={id}
+          iconName='bi bi-bag'
         />
       </div>
     </div>

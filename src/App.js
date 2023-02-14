@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import FavoritesBox from './FavoritesBox';
 import ShoppingBag from './ShoppingBag';
+import RegisterPage from './RegisterPage';
+import LoginPage from './LoginPage';
 
 function App() {
   const [products, setProducts] = useState(productArray);
@@ -96,7 +98,7 @@ function App() {
         <div
           style={{
             textAlign: 'center',
-            position: 'absolute',
+            position: 'fixed',
             width: '200px',
             height: '25px',
             fontSize: '0.9em',
@@ -104,7 +106,7 @@ function App() {
             borderRadius: '8px',
             opacity: '0.75',
             backgroundColor: 'black',
-            top: '75px',
+            top: '210px',
             left: '550px',
             paddingTop: '4px',
             zIndex: 99,
@@ -177,6 +179,8 @@ function App() {
                 />
               }
             />
+            <Route path='/register' element={<RegisterPage />} />
+            <Route path='/login' element={<LoginPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

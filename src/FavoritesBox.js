@@ -33,6 +33,7 @@ function FavoritesBox({
           height='30px'
           text='clear all'
           clickHandler={clearFavoritesBox}
+          marginTop='10px'
         />
       )}
     </div>

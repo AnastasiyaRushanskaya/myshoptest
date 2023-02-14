@@ -4,6 +4,7 @@ import ShoppingBag from './ShoppingBag';
 import FavoritesBox from './FavoritesBox';
 import Footer from './Footer';
 import { Outlet, useLocation } from 'react-router-dom';
+import SignInBanner from './SignInBanner';
 
 function MainPage({
   cart,
@@ -19,6 +20,8 @@ function MainPage({
 }) {
   const inShoppingBagpage = useLocation().pathname === '/shoppingBag';
   const inFavoritesPage = useLocation().pathname === '/favorites';
+  const inRegisterPage = useLocation().pathname === '/register';
+  const inLoginPage = useLocation().pathname === '/login';
 
   return (
     <div>
@@ -36,6 +39,7 @@ function MainPage({
           marginLeft: '30px',
         }}
       >
+        {!inRegisterPage && !inLoginPage && <SignInBanner />}
         <Outlet />
       </div>
       <div style={{ display: 'inline-block', verticalAlign: 'text-top' }}>

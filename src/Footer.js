@@ -6,8 +6,9 @@ function Footer() {
   return (
     <div
       style={{
+        marginTop: '20px',
         backgroundColor: '#eae9e8',
-        height: '150px',
+        height: '160px',
         textAlign: 'center',
       }}
     >

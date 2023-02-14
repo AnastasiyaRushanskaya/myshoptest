@@ -59,6 +59,7 @@ function ProductBox({
           text='add'
           clickHandler={() => addToCart(id, size)}
           id={id}
+          iconName='bi bi-bag'
         />
       </div>
     </div>

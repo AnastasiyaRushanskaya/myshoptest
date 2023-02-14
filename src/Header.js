@@ -4,12 +4,12 @@ import shopLogo from './images/shop_logo.png';
 
 function Header({ text, products }) {
   return (
-    <header style={{ marginTop: '20px', marginBottom: '20px' }}>
-      <div style={{ width: '15%', display: 'inline-block' }}>
+    <header style={{ marginTop: '15px', marginBottom: '15px' }}>
+      <div style={{ width: '17%', display: 'inline-block' }}>
         <Link to='/'>
           <img
             src={shopLogo}
-            style={{ height: '40px', width: 'auto', paddingLeft: '30px' }}
+            style={{ height: '40px', width: 'auto', marginLeft: '30px' }}
           ></img>
         </Link>
       </div>
@@ -17,14 +17,14 @@ function Header({ text, products }) {
         style={{
           textAlign: 'center',
           display: 'inline-block',
-          width: '60%',
+          width: '58%',
           margin: '0px',
         }}
       >
         {text}
       </h1>
       <div style={{ width: '25%', display: 'inline-block', fontSize: '0.8em' }}>
-        <Link to='/' className='linkStyles'>
+        <Link to='/register' className='linkStyles'>
           <span style={{ padding: '7px' }}>
             <i className='bi bi-person'></i> Sign in
           </span>

@@ -15,8 +15,8 @@ function QuantityOption({ top, border }) {
       value={value}
       onChange={(event) => setQuantityValue(event.target.value)}
       style={{
-        marginBottom: '40px',
-        marginTop: '35px',
+        marginBottom: '20px',
+        marginTop: '25px',
         height: '20px',
         outline: 'none',
         border: border,

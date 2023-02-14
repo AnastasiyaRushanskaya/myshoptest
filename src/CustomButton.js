@@ -1,15 +1,6 @@
 import React from 'react';
 
-function CustomButton({
-  width,
-  height,
-  top,
-  right,
-  left,
-  bottom,
-  text,
-  clickHandler,
-}) {
+function CustomButton({ width, height, text, clickHandler, iconName }) {
   return (
     <button
       onClick={clickHandler}
@@ -19,19 +10,17 @@ function CustomButton({
         backgroundColor: 'black',
         color: 'white',
         border: 'none',
-        borderRadius: '6px',
+        borderRadius: '5px',
         width: width,
-        maxWidth: '350px',
+        marginTop: '20px',
         height: height,
-        top: top,
-        right: right,
-        left: left,
-        bottom: bottom,
       }}
     >
-      <i className='bi bi-bag'></i> {text}
+      <i className={iconName}></i> {text}
     </button>
   );
 }
 
 export default CustomButton;
+
+// ('bi bi-bag');
