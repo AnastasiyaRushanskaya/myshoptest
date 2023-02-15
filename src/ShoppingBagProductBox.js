@@ -54,10 +54,14 @@ function ShoppingBagProductBox({
         />{' '}
         <CustomButton
           width='fit-content'
+          height='20px'
           text='remove'
           clickHandler={removeFromCart}
           id={id}
           iconName='bi bi-bag'
+          buttonColor='black'
+          buttonTextColor='#faf9f8'
+          buttornBorder='none'
         />
       </div>
     </div>

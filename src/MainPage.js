@@ -43,20 +43,22 @@ function MainPage({
         <Outlet />
       </div>
       <div style={{ display: 'inline-block', verticalAlign: 'text-top' }}>
-        {!inShoppingBagpage && (
+        {!inShoppingBagpage && !inRegisterPage && (
           <ShoppingBag
             products={cart}
             width='350px'
+            buttonWidth='220px'
             removeFromCart={removeFromCart}
             toggleInFavorites={toggleInFavorites}
             checkIsInFavorites={checkIsInFavorites}
           />
         )}
 
-        {!inFavoritesPage && (
+        {!inFavoritesPage && !inRegisterPage && (
           <FavoritesBox
             products={favorites}
             width='350px'
+            buttonWidth='220px'
             addToCart={addToCart}
             toggleInFavorites={toggleInFavorites}
             checkIsInFavorites={checkIsInFavorites}

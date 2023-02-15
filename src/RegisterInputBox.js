@@ -11,7 +11,7 @@ function RegisterInputBox({ inputBoxName }) {
       <input
         style={{
           width: '100%',
-          height: '30px',
+          height: '40px',
           boxSizing: 'border-box',
         }}
       ></input>

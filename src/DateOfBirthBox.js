@@ -3,7 +3,7 @@ import MonthOfBirthOption from './MonthOfBirthOption';
 
 function DateOfBirthBox() {
   return (
-    <div style={{ width: '100%' }}>
+    <div style={{ width: '100%', marginBottom: '5px' }}>
       <span style={{ fontSize: '0.7em' }}>
         Date of Birth<sup style={{ color: 'red' }}>*</sup>
       </span>

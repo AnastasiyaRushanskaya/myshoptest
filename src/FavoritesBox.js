@@ -9,6 +9,7 @@ function FavoritesBox({
   checkIsInFavorites,
   clearFavoritesBox,
   width,
+  buttonWidth,
 }) {
   return (
     <div
@@ -29,11 +30,14 @@ function FavoritesBox({
       <br />
       {products.length !== 0 && (
         <CustomButton
-          width='100%'
+          width={buttonWidth}
           height='30px'
+          marginLeft='20px'
           text='clear all'
           clickHandler={clearFavoritesBox}
-          marginTop='10px'
+          buttonColor='#faf9f8'
+          buttonTextColor='black'
+          buttornBorder='1px solid black'
         />
       )}
     </div>

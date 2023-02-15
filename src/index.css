@@ -17,6 +17,7 @@ code {
 .linkStyles {
   border-bottom: 1px solid #faf9f8;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .linkStyles:visited {

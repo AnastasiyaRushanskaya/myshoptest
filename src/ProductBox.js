@@ -55,11 +55,15 @@ function ProductBox({
           clickHandler={() => toggleInFavorites(id)}
         />{' '}
         <CustomButton
-          width='70px'
+          width='80px'
+          height='20px'
           text='add'
           clickHandler={() => addToCart(id, size)}
           id={id}
           iconName='bi bi-bag'
+          buttonColor='black'
+          buttonTextColor='#faf9f8'
+          buttornBorder='none'
         />
       </div>
     </div>

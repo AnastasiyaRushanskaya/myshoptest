@@ -160,6 +160,7 @@ function App() {
                 <ShoppingBag
                   products={cart}
                   width='800px'
+                  buttonWidth='220px'
                   removeFromCart={removeFromCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
@@ -172,6 +173,7 @@ function App() {
                 <FavoritesBox
                   products={favorites}
                   width='800px'
+                  buttonWidth='220px'
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}

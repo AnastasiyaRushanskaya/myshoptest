@@ -9,6 +9,7 @@ function ShoppingBag({
   checkIsInFavorites,
   toggleInFavorites,
   width,
+  buttonWidth,
 }) {
   return (
     <div
@@ -31,9 +32,13 @@ function ShoppingBag({
       {products.length !== 0 && (
         <Link to='/shoppingBag'>
           <CustomButton
-            width='100%'
+            width={buttonWidth}
+            marginLeft='20px'
             height='30px'
             text='continue to checkout'
+            buttonColor='#faf9f8'
+            buttonTextColor='black'
+            buttornBorder='1px solid black'
           />
         </Link>
       )}

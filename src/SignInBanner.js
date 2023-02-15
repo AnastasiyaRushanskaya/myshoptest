@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CustomButton from './CustomButton';
 
 function SignInBanner() {
   return (
     <div
       style={{
         width: '100%',
-        height: '130px',
+        marginBottom: '15px',
+        height: '140px',
         backgroundColor: '#f7efe7',
         textAlign: 'center',
       }}
@@ -30,18 +32,14 @@ function SignInBanner() {
         €20.
       </p>
       <Link to='/register'>
-        <button
-          style={{
-            backgroundColor: '#f7efe7',
-            border: '0.6px solid',
-            cursor: 'pointer',
-            height: '30px',
-            margin: '10px',
-            fontWeight: 'bold',
-          }}
-        >
-          Become a member
-        </button>
+        <CustomButton
+          text='Become a member'
+          height='30px'
+          width='30%'
+          buttonColor='#f7efe7'
+          buttonTextColor='black'
+          buttornBorder='0.6px solid black'
+        />
       </Link>
     </div>
   );

@@ -24,7 +24,7 @@ function Header({ text, products }) {
         {text}
       </h1>
       <div style={{ width: '25%', display: 'inline-block', fontSize: '0.8em' }}>
-        <Link to='/register' className='linkStyles'>
+        <Link to='/login' className='linkStyles'>
           <span style={{ padding: '7px' }}>
             <i className='bi bi-person'></i> Sign in
           </span>
