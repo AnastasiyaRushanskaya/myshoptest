@@ -8,7 +8,7 @@ import SignInBanner from './SignInBanner';
 
 function MainPage({
   cart,
-  searchNavigationResults,
+  // searchNavigationResults,
   startSearch,
   searchValue,
   removeFromCart,
@@ -28,7 +28,7 @@ function MainPage({
     <div>
       <Header text='My Shop' products={cart} />
       <NavigationList
-        searchNavigationResults={searchNavigationResults}
+        // searchNavigationResults={searchNavigationResults}
         startSearch={startSearch}
         searchValue={searchValue}
       />
@@ -52,28 +52,34 @@ function MainPage({
           marginLeft: '60px',
         }}
       >
-        {!inShoppingBagpage && !inRegisterPage && !inLoginPage && (
-          <ShoppingBag
-            products={cart}
-            width='300px'
-            buttonWidth='220px'
-            removeFromCart={removeFromCart}
-            toggleInFavorites={toggleInFavorites}
-            checkIsInFavorites={checkIsInFavorites}
-          />
-        )}
+        {!inShoppingBagpage &&
+          !inRegisterPage &&
+          !inLoginPage &&
+          !inRequestSigninPage && (
+            <ShoppingBag
+              products={cart}
+              width='300px'
+              buttonWidth='220px'
+              removeFromCart={removeFromCart}
+              toggleInFavorites={toggleInFavorites}
+              checkIsInFavorites={checkIsInFavorites}
+            />
+          )}
 
-        {!inFavoritesPage && !inRegisterPage && !inLoginPage && (
-          <FavoritesBox
-            products={favorites}
-            width='300px'
-            buttonWidth='220px'
-            addToCart={addToCart}
-            toggleInFavorites={toggleInFavorites}
-            checkIsInFavorites={checkIsInFavorites}
-            clearFavoritesBox={clearFavoritesBox}
-          />
-        )}
+        {!inFavoritesPage &&
+          !inRegisterPage &&
+          !inLoginPage &&
+          !inRequestSigninPage && (
+            <FavoritesBox
+              products={favorites}
+              width='300px'
+              buttonWidth='220px'
+              addToCart={addToCart}
+              toggleInFavorites={toggleInFavorites}
+              checkIsInFavorites={checkIsInFavorites}
+              clearFavoritesBox={clearFavoritesBox}
+            />
+          )}
       </div>
       <Footer />
     </div>

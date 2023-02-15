@@ -1,20 +1,25 @@
 import React from 'react';
 import menuList from './menuList';
 import SearchBox from './SearchBox';
+import { Link } from 'react-router-dom';
 
-function NavigationList({ searchNavigationResults, startSearch, searchValue }) {
+function NavigationList({ startSearch, searchValue }) {
   const items = menuList.map((item, index) => {
     return (
       <li
         key={index}
-        onClick={(event) => searchNavigationResults(event.target.textContent)}
         style={{
           listStyleType: 'none',
           paddingBottom: '30px',
           cursor: 'pointer',
         }}
       >
-        {item}
+        <Link
+          to={item === 'All products' ? '/' : `/${item.split(' ').join('')}`}
+          className='linkStyles'
+        >
+          {item}
+        </Link>
       </li>
     );
   });
@@ -27,7 +32,6 @@ function NavigationList({ searchNavigationResults, startSearch, searchValue }) {
       }}
     >
       <SearchBox startSearch={startSearch} searchValue={searchValue} />
-
       <ul>{items}</ul>
     </div>
   );

@@ -9,31 +9,32 @@ import ShoppingBag from './ShoppingBag';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
 import RequestSignin from './RequestSignin';
+import {
+  allProducts,
+  newArrivals,
+  trendingnow,
+  bestSellers,
+  dresses,
+  skirts,
+  tShirts,
+  blazers,
+  coats,
+  shoes,
+  accessories,
+} from './categoryTypes';
 
 function App() {
   const [products, setProducts] = useState(productArray);
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(null);
-  const [navigationResults, setNavigationResults] = useState(null);
   const [cart, setCart] = useState([]);
   const [favorites, setFavorites] = useState([]);
-
   const [sizeErrorMessage, setSizeErrorMessage] = useState('');
 
   useEffect(() => {
     let timerId = setTimeout(() => setSizeErrorMessage(null), 4000);
     return () => clearTimeout(timerId);
   }, [sizeErrorMessage]);
-
-  function searchNavigationResults(tag) {
-    if (tag === 'All products') {
-      setNavigationResults(null);
-      return;
-    }
-    setNavigationResults(
-      products.filter((product) => product.category.includes(tag))
-    );
-  }
 
   function startSearch(event) {
     setSearchValue(event.target.value);
@@ -126,7 +127,6 @@ function App() {
             element={
               <MainPage
                 cart={cart}
-                searchNavigationResults={searchNavigationResults}
                 startSearch={startSearch}
                 searchValue={searchValue}
                 removeFromCart={removeFromCart}
@@ -142,13 +142,7 @@ function App() {
               index
               element={
                 <ProductList
-                  products={
-                    searchValue
-                      ? searchResults
-                      : navigationResults
-                      ? navigationResults
-                      : products
-                  }
+                  products={searchValue ? searchResults : products}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
@@ -185,6 +179,116 @@ function App() {
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/requestSignin' element={<RequestSignin />} />
+            <Route
+              path='/NewArrivals'
+              element={
+                <ProductList
+                  products={newArrivals}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/Trendingnow'
+              element={
+                <ProductList
+                  products={trendingnow}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/BestSellers'
+              element={
+                <ProductList
+                  products={bestSellers}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/Dresses'
+              element={
+                <ProductList
+                  products={dresses}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/Skirts'
+              element={
+                <ProductList
+                  products={skirts}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/T-Shirts'
+              element={
+                <ProductList
+                  products={tShirts}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/Blazers'
+              element={
+                <ProductList
+                  products={blazers}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/Coats'
+              element={
+                <ProductList
+                  products={coats}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/Shoes'
+              element={
+                <ProductList
+                  products={shoes}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
+            <Route
+              path='/Accessories'
+              element={
+                <ProductList
+                  products={accessories}
+                  addToCart={addToCart}
+                  toggleInFavorites={toggleInFavorites}
+                  checkIsInFavorites={checkIsInFavorites}
+                />
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>
