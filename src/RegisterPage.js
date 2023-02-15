@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CustomButton from './CustomButton';
 import DateOfBirthBox from './DateOfBirthBox';
-import RegisterInputBox from './RegisterInputBox';
-import SuscribeForNewsBox from './SuscribeForNewsBox';
+import LoginAndRegisterHeader from './LoginAndRegisterHeader';
+import EmailAndPasswordInputBox from './EmailAndPasswordInputBox';
+import LoginAndRegisterCheckbox from './LoginAndRegisterCheckbox';
 import TermsAndConditionsBox from './TermsAndConditionsBox';
 
 function RegisterPage() {
@@ -17,29 +18,24 @@ function RegisterPage() {
 
   return (
     <div>
-      <h4 style={{ marginTop: '0px', textAlign: 'center' }}>Become a member</h4>
-      <p style={{ fontSize: '0.7em', textAlign: 'center' }}>
-        Become a member — don’t miss out on deals, offers, discounts and bonus
-        vouchers.
-      </p>
+      <LoginAndRegisterHeader
+        text='Become a member'
+        desctription='Become a member — don’t miss out on deals, offers, discounts and bonus
+vouchers.'
+      />
       <div
         style={{
           width: '50%',
           margin: '0 auto',
         }}
       >
-        <RegisterInputBox inputBoxName='Email' />
-        <RegisterInputBox inputBoxName='Create password' />
+        <EmailAndPasswordInputBox inputBoxName='Email' />
+        <EmailAndPasswordInputBox inputBoxName='Create password' />
         <DateOfBirthBox />
-        <div
-          style={{
-            fontSize: '0.8em',
-            paddingTop: '15px',
-            textAlign: 'justify',
-          }}
-        >
-          <SuscribeForNewsBox />
-        </div>
+        <LoginAndRegisterCheckbox
+          text='Yes, email me offers, style updates, and special invites to sales &
+        events'
+        />
 
         <p style={{ fontSize: '0.6em', textAlign: 'justify' }}>
           By clicking ‘Become a member’, I agree to the H&M Membership{' '}
@@ -59,7 +55,7 @@ function RegisterPage() {
           width='100%'
           buttonColor='black'
           buttonTextColor='#faf9f8'
-          buttornBorder='none'
+          buttonBorder='none'
         />
 
         <Link to='/login' className='linkStyles'>

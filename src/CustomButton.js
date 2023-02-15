@@ -9,7 +9,7 @@ function CustomButton({
   marginLeft,
   buttonColor,
   buttonTextColor,
-  buttornBorder,
+  buttonBorder,
 }) {
   return (
     <button
@@ -27,7 +27,7 @@ function CustomButton({
         height: height,
         backgroundColor: buttonColor,
         color: buttonTextColor,
-        border: buttornBorder,
+        border: buttonBorder,
         fontWeight: 'bold',
         // textTransform: 'uppercase',
       }}

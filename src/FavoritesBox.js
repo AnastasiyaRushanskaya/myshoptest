@@ -37,7 +37,7 @@ function FavoritesBox({
           clickHandler={clearFavoritesBox}
           buttonColor='#faf9f8'
           buttonTextColor='black'
-          buttornBorder='1px solid black'
+          buttonBorder='1px solid black'
         />
       )}
     </div>

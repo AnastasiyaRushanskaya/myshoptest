@@ -8,6 +8,7 @@ import FavoritesBox from './FavoritesBox';
 import ShoppingBag from './ShoppingBag';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
+import RequestSignin from './RequestSignin';
 
 function App() {
   const [products, setProducts] = useState(productArray);
@@ -183,6 +184,7 @@ function App() {
             />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/login' element={<LoginPage />} />
+            <Route path='/requestSignin' element={<RequestSignin />} />
           </Route>
         </Routes>
       </BrowserRouter>

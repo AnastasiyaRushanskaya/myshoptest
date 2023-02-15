@@ -22,6 +22,7 @@ function MainPage({
   const inFavoritesPage = useLocation().pathname === '/favorites';
   const inRegisterPage = useLocation().pathname === '/register';
   const inLoginPage = useLocation().pathname === '/login';
+  const inRequestSigninPage = useLocation().pathname === '/requestSignin';
 
   return (
     <div>
@@ -39,14 +40,22 @@ function MainPage({
           marginLeft: '30px',
         }}
       >
-        {!inRegisterPage && !inLoginPage && <SignInBanner />}
+        {!inRegisterPage && !inLoginPage && !inRequestSigninPage && (
+          <SignInBanner />
+        )}
         <Outlet />
       </div>
-      <div style={{ display: 'inline-block', verticalAlign: 'text-top' }}>
-        {!inShoppingBagpage && !inRegisterPage && (
+      <div
+        style={{
+          display: 'inline-block',
+          verticalAlign: 'text-top',
+          marginLeft: '60px',
+        }}
+      >
+        {!inShoppingBagpage && !inRegisterPage && !inLoginPage && (
           <ShoppingBag
             products={cart}
-            width='350px'
+            width='300px'
             buttonWidth='220px'
             removeFromCart={removeFromCart}
             toggleInFavorites={toggleInFavorites}
@@ -54,10 +63,10 @@ function MainPage({
           />
         )}
 
-        {!inFavoritesPage && !inRegisterPage && (
+        {!inFavoritesPage && !inRegisterPage && !inLoginPage && (
           <FavoritesBox
             products={favorites}
-            width='350px'
+            width='300px'
             buttonWidth='220px'
             addToCart={addToCart}
             toggleInFavorites={toggleInFavorites}

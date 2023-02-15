@@ -38,7 +38,7 @@ function SignInBanner() {
           width='30%'
           buttonColor='#f7efe7'
           buttonTextColor='black'
-          buttornBorder='0.6px solid black'
+          buttonBorder='0.6px solid black'
         />
       </Link>
     </div>

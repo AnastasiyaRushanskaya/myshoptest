@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RegisterInputBox({ inputBoxName }) {
+function EmailAndPasswordInputBox({ inputBoxName }) {
   return (
     <>
       <span style={{ fontSize: '0.7em' }}>
@@ -19,4 +19,4 @@ function RegisterInputBox({ inputBoxName }) {
   );
 }
 
-export default RegisterInputBox;
+export default EmailAndPasswordInputBox;

@@ -61,7 +61,7 @@ function ShoppingBagProductBox({
           iconName='bi bi-bag'
           buttonColor='black'
           buttonTextColor='#faf9f8'
-          buttornBorder='none'
+          buttonBorder='none'
         />
       </div>
     </div>
