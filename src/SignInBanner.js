@@ -7,17 +7,17 @@ function SignInBanner() {
     <div
       style={{
         width: '100%',
-        marginBottom: '15px',
         height: '140px',
+        marginBottom: '15px',
         backgroundColor: '#f7efe7',
         textAlign: 'center',
       }}
     >
       <p
         style={{
-          color: 'red',
           margin: '0',
           padding: '10px',
+          color: 'red',
           fontWeight: 'bold',
           fontSize: '0.9em',
         }}
@@ -34,8 +34,8 @@ function SignInBanner() {
       <Link to='/register'>
         <CustomButton
           text='Become a member'
-          height='30px'
           width='30%'
+          height='30px'
           buttonColor='#f7efe7'
           buttonTextColor='black'
           buttonBorder='0.6px solid black'

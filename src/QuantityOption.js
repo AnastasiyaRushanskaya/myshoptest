@@ -3,21 +3,21 @@ import { useState } from 'react';
 
 const quantityArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-function QuantityOption({ top, border }) {
+function QuantityOption({ border, quantityValue, changeQuantityValue }) {
   const [quantity, setQuantity] = useState(quantityArray);
-  const [value, setQuantityValue] = useState('');
+  // const [quantityValue, setQuantityValue] = useState('');
 
   const QuantityOptions = quantity.map((QuantityOption, index) => {
     return <option key={index}>{QuantityOption}</option>;
   });
   return (
     <select
-      value={value}
-      onChange={(event) => setQuantityValue(event.target.value)}
+      value={quantityValue}
+      onChange={changeQuantityValue}
       style={{
+        height: '20px',
         marginBottom: '20px',
         marginTop: '25px',
-        height: '20px',
         outline: 'none',
         border: border,
         backgroundColor: '#faf9f8',

@@ -30,14 +30,14 @@ function FavoritesBox({
       <br />
       {products.length !== 0 && (
         <CustomButton
+          text='clear all'
+          clickHandler={clearFavoritesBox}
           width={buttonWidth}
           height='30px'
           marginLeft='20px'
-          text='clear all'
-          clickHandler={clearFavoritesBox}
+          buttonBorder='1px solid black'
           buttonColor='#faf9f8'
           buttonTextColor='black'
-          buttonBorder='1px solid black'
         />
       )}
     </div>

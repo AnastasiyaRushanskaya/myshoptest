@@ -1,12 +1,12 @@
 import React from 'react';
 
 function CustomButton({
-  width,
-  height,
   text,
   clickHandler,
-  iconName,
+  width,
+  height,
   marginLeft,
+  iconName,
   buttonColor,
   buttonTextColor,
   buttonBorder,
@@ -15,21 +15,17 @@ function CustomButton({
     <button
       onClick={clickHandler}
       style={{
-        cursor: 'pointer',
         display: 'inline-block',
-        backgroundColor: 'black',
-        color: 'white',
-        border: 'none',
-        borderRadius: '3px',
         width: width,
+        height: height,
         marginTop: '20px',
         marginLeft: marginLeft,
-        height: height,
+        border: buttonBorder,
+        borderRadius: '3px',
+        cursor: 'pointer',
         backgroundColor: buttonColor,
         color: buttonTextColor,
-        border: buttonBorder,
         fontWeight: 'bold',
-        // textTransform: 'uppercase',
       }}
     >
       <i className={iconName}></i> {text}
@@ -38,5 +34,3 @@ function CustomButton({
 }
 
 export default CustomButton;
-
-// ('bi bi-bag');

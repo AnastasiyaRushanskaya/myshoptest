@@ -6,10 +6,10 @@ function ProductImage({ src }) {
       <img
         src={src}
         style={{
-          width: '50%',
-          height: '100%',
           float: 'left',
           display: 'inline-block',
+          width: '50%',
+          height: '100%',
         }}
       ></img>
     </div>

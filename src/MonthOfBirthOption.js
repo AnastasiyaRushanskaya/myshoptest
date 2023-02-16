@@ -26,10 +26,10 @@ function MonthOfBirthOption() {
       value={value}
       onChange={(event) => setValue(event.target.value)}
       style={{
-        boxSizing: 'border-box',
         width: '30%',
         height: '30px',
         marginRight: '20px',
+        boxSizing: 'border-box',
       }}
     >
       {monthOptions}

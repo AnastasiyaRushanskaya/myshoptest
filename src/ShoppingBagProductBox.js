@@ -17,11 +17,11 @@ function ShoppingBagProductBox({
   return (
     <div
       style={{
+        display: 'inline-block',
+        position: 'relative',
         width: '220px',
         height: '200px',
-        display: 'inline-block',
         margin: '20px',
-        position: 'relative',
         fontSize: '13px',
       }}
     >
@@ -30,11 +30,7 @@ function ShoppingBagProductBox({
       <ProductImage src={src} />
 
       <div
-        style={{
-          width: 'auto',
-          marginLeft: '5px',
-          display: 'inline-block',
-        }}
+        style={{ display: 'inline-block', width: 'auto', marginLeft: '5px' }}
       >
         <div
           style={{
@@ -53,11 +49,10 @@ function ShoppingBagProductBox({
           clickHandler={() => toggleInFavorites(id)}
         />{' '}
         <CustomButton
-          width='fit-content'
-          height='20px'
           text='remove'
           clickHandler={removeFromCart}
-          id={id}
+          width='fit-content'
+          height='20px'
           iconName='bi bi-bag'
           buttonColor='black'
           buttonTextColor='#faf9f8'

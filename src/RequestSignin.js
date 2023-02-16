@@ -19,8 +19,8 @@ function RequestSignin() {
         <EmailAndPasswordInputBox inputBoxName='Email' />
         <CustomButton
           text='Submit'
-          height='40px'
           width='100%'
+          height='40px'
           buttonColor='black'
           buttonTextColor='#faf9f8'
           buttonBorder='none'

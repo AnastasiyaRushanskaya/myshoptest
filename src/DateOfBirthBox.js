@@ -10,19 +10,19 @@ function DateOfBirthBox() {
       <div style={{ width: '100%' }}>
         <input
           style={{
-            boxSizing: 'border-box',
             width: '30%',
             height: '30px',
             marginRight: '20px',
+            boxSizing: 'border-box',
           }}
           value='date'
         ></input>
         <MonthOfBirthOption />
         <input
           style={{
-            boxSizing: 'border-box',
             width: '30%',
             height: '30px',
+            boxSizing: 'border-box',
           }}
           value='year'
         ></input>

@@ -6,9 +6,9 @@ function Footer() {
   return (
     <div
       style={{
+        height: '160px',
         marginTop: '20px',
         backgroundColor: '#eae9e8',
-        height: '160px',
         textAlign: 'center',
       }}
     >
@@ -40,7 +40,7 @@ function Footer() {
       </p>
       <img
         src={shopLogo}
-        style={{ color: 'black', width: '40px', marginRight: '40px' }}
+        style={{ width: '40px', marginRight: '40px', color: 'black' }}
       />
     </div>
   );

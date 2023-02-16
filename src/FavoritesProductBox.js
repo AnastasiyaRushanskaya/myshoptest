@@ -24,11 +24,11 @@ function FavoritesProductBox({
   return (
     <div
       style={{
+        display: 'inline-block',
+        position: 'relative',
         width: '220px',
         height: '200px',
-        display: 'inline-block',
         margin: '20px',
-        position: 'relative',
         fontSize: '13px',
       }}
     >
@@ -56,10 +56,10 @@ function FavoritesProductBox({
           clickHandler={() => toggleInFavorites(id)}
         />{' '}
         <CustomButton
-          width='70px'
-          height='20px'
           text='add'
           clickHandler={() => addToCart(id, size)}
+          width='70px'
+          height='20px'
           iconName='bi bi-bag'
           buttonColor='black'
           buttonTextColor='#faf9f8'

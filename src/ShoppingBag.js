@@ -32,10 +32,10 @@ function ShoppingBag({
       {products.length !== 0 && (
         <Link to='/shoppingBag'>
           <CustomButton
-            width={buttonWidth}
-            marginLeft='20px'
-            height='30px'
             text='continue to checkout'
+            width={buttonWidth}
+            height='30px'
+            marginLeft='20px'
             buttonColor='#faf9f8'
             buttonTextColor='black'
             buttonBorder='1px solid black'

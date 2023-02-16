@@ -4,7 +4,11 @@ const sizesArray = ['Select size', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 function SizeOption({ border, selectSize, size }) {
   const sizeOptions = sizesArray.map((sizeOption, index) => {
-    return <option key={index}>{sizeOption}</option>;
+    return (
+      <option key={index} value={index !== 0 ? sizeOption : ''}>
+        {sizeOption}
+      </option>
+    );
   });
   return (
     <select

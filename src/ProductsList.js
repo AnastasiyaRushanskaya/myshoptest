@@ -6,6 +6,7 @@ function ProductList({
   addToCart,
   toggleInFavorites,
   checkIsInFavorites,
+  checked,
 }) {
   const items = products.map((item) => {
     const inFavorites = checkIsInFavorites(item.id);
@@ -16,11 +17,12 @@ function ProductList({
         name={item.name}
         cost={item.cost}
         src={item.src}
-        category={item.category}
-        inCart={item.inCart}
+        // category={item.category}
+        // inCart={item.inCart}
         inFavorites={inFavorites}
         addToCart={addToCart}
         toggleInFavorites={toggleInFavorites}
+        // checked={checked}
       />
     );
   });

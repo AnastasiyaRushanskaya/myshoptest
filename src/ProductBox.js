@@ -12,6 +12,7 @@ function ProductBox({
   inFavorites,
   addToCart,
   toggleInFavorites,
+  // checked,
 }) {
   const [size, setSize] = useState('');
 
@@ -22,11 +23,11 @@ function ProductBox({
   return (
     <div
       style={{
+        position: 'relative',
+        display: 'inline-block',
         width: '220px',
         height: '200px',
-        display: 'inline-block',
         margin: '20px',
-        position: 'relative',
         fontSize: '13px',
       }}
     >
@@ -35,9 +36,9 @@ function ProductBox({
       <ProductImage src={src} />
       <div
         style={{
+          display: 'inline-block',
           width: 'auto',
           marginLeft: '5px',
-          display: 'inline-block',
         }}
       >
         <span
@@ -55,11 +56,10 @@ function ProductBox({
           clickHandler={() => toggleInFavorites(id)}
         />{' '}
         <CustomButton
-          width='80px'
-          height='20px'
           text='add'
           clickHandler={() => addToCart(id, size)}
-          id={id}
+          width='80px'
+          height='20px'
           iconName='bi bi-bag'
           buttonColor='black'
           buttonTextColor='#faf9f8'

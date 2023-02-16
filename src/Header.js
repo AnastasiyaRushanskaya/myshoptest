@@ -5,25 +5,25 @@ import shopLogo from './images/shop_logo.png';
 function Header({ text, products }) {
   return (
     <header style={{ marginTop: '15px', marginBottom: '15px' }}>
-      <div style={{ width: '17%', display: 'inline-block' }}>
+      <div style={{ display: 'inline-block', width: '17%' }}>
         <Link to='/'>
           <img
             src={shopLogo}
-            style={{ height: '40px', width: 'auto', marginLeft: '30px' }}
+            style={{ width: 'auto', height: '40px', marginLeft: '30px' }}
           ></img>
         </Link>
       </div>
       <h1
         style={{
-          textAlign: 'center',
           display: 'inline-block',
           width: '58%',
           margin: '0px',
+          textAlign: 'center',
         }}
       >
         {text}
       </h1>
-      <div style={{ width: '25%', display: 'inline-block', fontSize: '0.8em' }}>
+      <div style={{ display: 'inline-block', width: '25%', fontSize: '0.8em' }}>
         <Link to='/login' className='linkStyles'>
           <span style={{ padding: '7px' }}>
             <i className='bi bi-person'></i> Sign in

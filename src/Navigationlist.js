@@ -9,8 +9,8 @@ function NavigationList({ startSearch, searchValue }) {
       <li
         key={index}
         style={{
-          listStyleType: 'none',
           paddingBottom: '30px',
+          listStyleType: 'none',
           cursor: 'pointer',
         }}
       >
@@ -26,8 +26,8 @@ function NavigationList({ startSearch, searchValue }) {
   return (
     <div
       style={{
-        width: '230px',
         display: 'inline-block',
+        width: '230px',
         verticalAlign: 'text-top',
       }}
     >

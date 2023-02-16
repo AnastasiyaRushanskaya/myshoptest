@@ -10,7 +10,6 @@ import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
 import RequestSignin from './RequestSignin';
 import {
-  allProducts,
   newArrivals,
   trendingnow,
   bestSellers,
@@ -31,6 +30,18 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [sizeErrorMessage, setSizeErrorMessage] = useState('');
 
+  const [quantityValue, setQuantityValue] = useState('');
+
+  function changeQuantityValue(event) {
+    setQuantityValue(event.target.value);
+  }
+
+  // const [checked, setChecked] = useState(false);
+
+  // function changeProductboxSize() {
+  //   setChecked(!checked);
+  // }
+
   useEffect(() => {
     let timerId = setTimeout(() => setSizeErrorMessage(null), 4000);
     return () => clearTimeout(timerId);
@@ -48,12 +59,13 @@ function App() {
       setSizeErrorMessage('Please select size');
       return;
     }
-
+    // проверить есть ли в карт такой объект с таким айди и размером/ если нет - добавить если да - записать ему квонтити + 1
     products.map((prod) => {
       if (prod.id === id) {
         setCart([...cart, { ...prod, size }]);
       }
     });
+    // console.log(cart);
   }
 
   function addToFavorites(id) {
@@ -135,6 +147,7 @@ function App() {
                 favorites={favorites}
                 addToCart={addToCart}
                 clearFavoritesBox={clearFavoritesBox}
+                // changeProductboxSize={changeProductboxSize}
               />
             }
           >
@@ -146,6 +159,7 @@ function App() {
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  // checked={checked}
                 />
               }
             />
@@ -159,6 +173,8 @@ function App() {
                   removeFromCart={removeFromCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  quantityValue={quantityValue}
+                  changeQuantityValue={changeQuantityValue}
                 />
               }
             />

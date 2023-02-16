@@ -5,10 +5,11 @@ import FavoritesBox from './FavoritesBox';
 import Footer from './Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import SignInBanner from './SignInBanner';
+import ProductSizeCheckBox from './ProductSizeCheckbox';
+import { useState } from 'react';
 
 function MainPage({
   cart,
-  // searchNavigationResults,
   startSearch,
   searchValue,
   removeFromCart,
@@ -17,6 +18,7 @@ function MainPage({
   favorites,
   addToCart,
   clearFavoritesBox,
+  // changeProductboxSize,
 }) {
   const inShoppingBagpage = useLocation().pathname === '/shoppingBag';
   const inFavoritesPage = useLocation().pathname === '/favorites';
@@ -27,11 +29,7 @@ function MainPage({
   return (
     <div>
       <Header text='My Shop' products={cart} />
-      <NavigationList
-        // searchNavigationResults={searchNavigationResults}
-        startSearch={startSearch}
-        searchValue={searchValue}
-      />
+      <NavigationList startSearch={startSearch} searchValue={searchValue} />
       <div
         style={{
           display: 'inline-block',
@@ -43,6 +41,7 @@ function MainPage({
         {!inRegisterPage && !inLoginPage && !inRequestSigninPage && (
           <SignInBanner />
         )}
+        {/* <ProductSizeCheckBox changeProductboxSize={changeProductboxSize} /> */}
         <Outlet />
       </div>
       <div

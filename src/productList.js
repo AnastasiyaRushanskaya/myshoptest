@@ -8,6 +8,13 @@ import jumper from './images/jumper.jpeg';
 import dress from './images/dress.jpeg';
 import gilet from './images/gilet.jpeg';
 import cardigan from './images/cardigan.jpeg';
+import loafers from './images/loafers.jpeg';
+import slingbacks from './images/slingbacks.jpeg';
+import trainers from './images/trainers.jpeg';
+import miniskirt from './images/miniskirt.jpeg';
+import jacket from './images/jacket.jpeg';
+import shopper from './images/shopper.jpeg';
+import belt from './images/belt.jpeg';
 
 const productArray = [
   {
@@ -83,6 +90,62 @@ const productArray = [
     src: cardigan,
     inFavorites: false,
     category: ['New Arrivals', 'BestSellers'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Chunky loafers',
+    cost: '€34.99',
+    src: loafers,
+    inFavorites: false,
+    category: ['Shoes', 'BestSellers'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Textured-weave jacket',
+    cost: '€69.99',
+    src: jacket,
+    inFavorites: false,
+    category: ['New Arrivals', 'Blazers'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Slingbacks',
+    cost: '€239.99',
+    src: slingbacks,
+    inFavorites: false,
+    category: ['New Arrivals', 'Shoes'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Mini skirt',
+    cost: '€19.99',
+    src: miniskirt,
+    inFavorites: false,
+    category: ['Skirts', 'BestSellers'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Trainers',
+    cost: '€29.99',
+    src: trainers,
+    inFavorites: false,
+    category: ['Shoes', 'BestSellers'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Jute-blend shopper',
+    cost: '€39.99',
+    src: shopper,
+    inFavorites: false,
+    category: ['Accessories', 'Trending now'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Leather belt',
+    cost: '€19.99',
+    src: belt,
+    inFavorites: false,
+    category: ['Accessories', 'BestSellers'],
   },
 ];
 

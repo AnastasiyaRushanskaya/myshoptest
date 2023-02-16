@@ -19,7 +19,6 @@ function ShoppingBagList({
         src={item.src}
         inFavorites={inFavorites}
         removeFromCart={() => removeFromCart(index)}
-        products={products}
         toggleInFavorites={toggleInFavorites}
       />
     );

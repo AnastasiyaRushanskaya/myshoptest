@@ -33,17 +33,3 @@ export const shoes = productArray.filter((product) =>
 export const accessories = productArray.filter((product) =>
   product.category.includes('Accessories')
 );
-
-// export {
-//   allProducts,
-//   newArrivals,
-//   trendingnow,
-//   bestSellers,
-//   dresses,
-//   skirts,
-//   tShirts,
-//   blazers,
-//   coats,
-//   shoes,
-//   accessories,
-// };

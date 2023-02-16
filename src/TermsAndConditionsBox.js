@@ -4,36 +4,36 @@ function TermsAndConditionsBox() {
   return (
     <div
       style={{
-        backgroundColor: '#413f3e',
-        width: '100%',
-        height: 'fit-content',
-        zIndex: 98,
         position: 'absolute',
+        zIndex: 99,
         top: 0,
         left: 0,
+        width: '100%',
+        height: 'fit-content',
+        backgroundColor: '#413f3e',
       }}
     >
       <div
         style={{
-          backgroundColor: '#faf9f8',
+          position: 'relative',
           width: '40%',
           border: '10px solid #413f3e',
           margin: '0 auto',
-          position: 'relative',
-          cursor: 'default',
           padding: '20px',
+          backgroundColor: '#faf9f8',
           textAlign: 'center',
+          cursor: 'default',
         }}
       >
         <i
           className='bi bi-x'
           style={{
-            fontSize: '4em',
-            cursor: 'pointer',
             position: 'absolute',
             top: '0',
             right: '10px',
+            fontSize: '4em',
             color: 'grey',
+            cursor: 'pointer',
           }}
         ></i>
         <h1>H&M Membership terms & conditions</h1> <h3>Introduction</h3>
