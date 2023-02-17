@@ -6,16 +6,13 @@ import AddToFavoritesIcon from './AddToFavoritesIcon';
 import { useState } from 'react';
 
 function FavoritesProductBox({
-  name,
-  cost,
-  src,
-  id,
+  product,
   inFavorites,
   addToCart,
   toggleInFavorites,
-  // size,
   changeSizeHandler,
 }) {
+  const { name, cost, src, id } = product;
   const [size, setSize] = useState('');
 
   function changeSizeHandler(event) {

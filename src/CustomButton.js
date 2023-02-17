@@ -18,7 +18,7 @@ function CustomButton({
         display: 'inline-block',
         width: width,
         height: height,
-        marginTop: '20px',
+        marginTop: '15px',
         marginLeft: marginLeft,
         border: buttonBorder,
         borderRadius: '3px',

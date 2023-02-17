@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import shopLogo from './images/shop_logo.png';
 
-function Header({ text, shoppingBagItemsNumber }) {
+function Header({ text, shoppingBagItemsNumber, favorites }) {
   return (
     <header style={{ marginTop: '15px', marginBottom: '15px' }}>
       <div style={{ display: 'inline-block', width: '17%' }}>
@@ -31,7 +31,7 @@ function Header({ text, shoppingBagItemsNumber }) {
         </Link>
         <Link to='/favorites' className='linkStyles'>
           <span style={{ padding: '7px' }}>
-            <i className='bi bi-heart'></i> Favorites
+            <i className='bi bi-heart'></i> Favorites ({favorites.length})
           </span>
         </Link>
         <Link to='/shoppingBag' className='linkStyles'>

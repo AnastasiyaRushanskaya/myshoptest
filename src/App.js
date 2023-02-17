@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import productArray from './productList';
+import productArray from './productArray';
 import ProductList from './ProductsList';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -85,6 +85,7 @@ function App() {
     products.map((prod) => {
       if (prod.id === id) {
         setCart([...cart, { ...prod, size: size, quantity: 1 }]);
+        console.log(prod.quantity);
       }
     });
   }

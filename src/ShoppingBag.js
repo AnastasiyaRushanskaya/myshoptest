@@ -22,8 +22,10 @@ function ShoppingBag({
       }}
     >
       <h4 style={{ margin: '0px', textAlign: 'center' }}>
-        <i className='bi bi-bag-check'></i> Shopping bag (
-        {shoppingBagItemsNumber})
+        <Link to='/shoppingBag' className='linkStyles'>
+          <i className='bi bi-bag-check'></i> Shopping bag (
+          {shoppingBagItemsNumber})
+        </Link>
       </h4>
       <ShoppingBagList
         products={products}

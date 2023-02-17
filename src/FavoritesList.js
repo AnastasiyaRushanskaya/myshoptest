@@ -11,11 +11,8 @@ function FavoritesList({
     const inFavorites = checkIsInFavorites(item.id);
     return (
       <FavoritesProductBox
+        product={item}
         key={item.id}
-        id={item.id}
-        name={item.name}
-        cost={item.cost}
-        src={item.src}
         inFavorites={inFavorites}
         toggleInFavorites={toggleInFavorites}
         addToCart={addToCart}

@@ -5,6 +5,7 @@ import FavoritesBox from './FavoritesBox';
 import Footer from './Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import SignInBanner from './SignInBanner';
+import MainBanner from './MainBanner';
 
 function MainPage({
   cart,
@@ -29,7 +30,11 @@ function MainPage({
 
   return (
     <div>
-      <Header text='My Shop' shoppingBagItemsNumber={shoppingBagItemsNumber} />
+      <Header
+        text='My Shop'
+        shoppingBagItemsNumber={shoppingBagItemsNumber}
+        favorites={favorites}
+      />
       <NavigationList startSearch={startSearch} searchValue={searchValue} />
       <div
         style={{
@@ -42,6 +47,12 @@ function MainPage({
         {!inRegisterPage && !inLoginPage && !inRequestSigninPage && (
           <SignInBanner />
         )}
+        {!inRegisterPage &&
+          !inLoginPage &&
+          !inRequestSigninPage &&
+          !inFavoritesPage &&
+          !inShoppingBagpage && <MainBanner />}
+
         {/* <ProductSizeCheckBox changeProductboxSize={changeProductboxSize} /> */}
         <Outlet />
       </div>

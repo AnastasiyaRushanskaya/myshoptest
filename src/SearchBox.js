@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function SearchBox({ searchValue, startSearch }) {
   return (
     <input
-      placeholder='Search'
+      placeholder='Search products'
       value={searchValue}
       onChange={startSearch}
       style={{

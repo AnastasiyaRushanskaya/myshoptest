@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CustomButton from './CustomButton';
 import FavoritesList from './FavoritesList';
 
@@ -19,8 +20,11 @@ function FavoritesBox({
       }}
     >
       <h4 style={{ margin: '0px', textAlign: 'center' }}>
-        <i className='bi bi-bag-heart'></i> Your Favorites ({products.length})
+        <Link to='/favorites' className='linkStyles'>
+          <i className='bi bi-bag-heart'></i> Your Favorites ({products.length})
+        </Link>
       </h4>
+
       <FavoritesList
         products={products}
         addToCart={addToCart}

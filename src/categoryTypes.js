@@ -1,4 +1,4 @@
-import productArray from './productList';
+import productArray from './productArray';
 
 export const allProducts = productArray.filter((product) =>
   product.category.includes('All products')

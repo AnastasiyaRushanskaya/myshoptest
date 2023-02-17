@@ -7,8 +7,8 @@ function SignInBanner() {
     <div
       style={{
         width: '100%',
-        height: '140px',
-        marginBottom: '15px',
+        height: '120px',
+        marginBottom: '10px',
         backgroundColor: '#f7efe7',
         textAlign: 'center',
       }}
@@ -16,7 +16,7 @@ function SignInBanner() {
       <p
         style={{
           margin: '0',
-          padding: '10px',
+          padding: '5px',
           color: 'red',
           fontWeight: 'bold',
           fontSize: '0.9em',
