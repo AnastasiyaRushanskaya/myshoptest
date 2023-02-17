@@ -58,12 +58,12 @@ function FavoritesProductBox({
         <CustomButton
           text='add'
           clickHandler={() => addToCart(id, size)}
+          iconName='bi bi-bag'
           width='70px'
           height='20px'
-          iconName='bi bi-bag'
+          buttonBorder='none'
           buttonColor='black'
           buttonTextColor='#faf9f8'
-          buttonBorder='none'
         />
       </div>
     </div>

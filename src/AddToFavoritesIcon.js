@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AddToFavoritesIcon({ clickHandler, inFavorites }) {
+function AddToFavoritesIcon({ inFavorites, clickHandler }) {
   return (
     <i
       onClick={clickHandler}

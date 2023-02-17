@@ -5,15 +5,13 @@ import AddToFavoritesIcon from './AddToFavoritesIcon';
 import QuantityOption from './QuantityOption';
 
 function ShoppingBagProductBox({
-  name,
-  cost,
-  src,
-  id,
+  product,
   removeFromCart,
   inFavorites,
-  size,
   toggleInFavorites,
+  changeQuantityValue,
 }) {
+  const { name, cost, src, id, size, quantity } = product;
   return (
     <div
       style={{
@@ -42,7 +40,13 @@ function ShoppingBagProductBox({
         <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
           Size: {size}
         </div>
-        <QuantityOption top='72px' border='none' />
+        <QuantityOption
+          quantity={quantity}
+          changeQuantityValue={(event) =>
+            changeQuantityValue(id, size, event.target.value)
+          }
+          border='none'
+        />
         <br />
         <AddToFavoritesIcon
           inFavorites={inFavorites}
@@ -51,12 +55,12 @@ function ShoppingBagProductBox({
         <CustomButton
           text='remove'
           clickHandler={removeFromCart}
+          iconName='bi bi-bag'
           width='fit-content'
           height='20px'
-          iconName='bi bi-bag'
+          buttonBorder='none'
           buttonColor='black'
           buttonTextColor='#faf9f8'
-          buttonBorder='none'
         />
       </div>
     </div>

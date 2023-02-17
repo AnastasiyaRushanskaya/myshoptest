@@ -23,9 +23,9 @@ function FavoritesBox({
       </h4>
       <FavoritesList
         products={products}
-        toggleInFavorites={toggleInFavorites}
-        checkIsInFavorites={checkIsInFavorites}
         addToCart={addToCart}
+        checkIsInFavorites={checkIsInFavorites}
+        toggleInFavorites={toggleInFavorites}
       />
       <br />
       {products.length !== 0 && (

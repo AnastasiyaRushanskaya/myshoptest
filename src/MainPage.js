@@ -5,19 +5,20 @@ import FavoritesBox from './FavoritesBox';
 import Footer from './Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import SignInBanner from './SignInBanner';
-import ProductSizeCheckBox from './ProductSizeCheckbox';
-import { useState } from 'react';
 
 function MainPage({
   cart,
-  startSearch,
   searchValue,
+  favorites,
+  shoppingBagItemsNumber,
+  startSearch,
   removeFromCart,
   toggleInFavorites,
   checkIsInFavorites,
-  favorites,
   addToCart,
   clearFavoritesBox,
+  changeQuantityValue,
+
   // changeProductboxSize,
 }) {
   const inShoppingBagpage = useLocation().pathname === '/shoppingBag';
@@ -28,7 +29,7 @@ function MainPage({
 
   return (
     <div>
-      <Header text='My Shop' products={cart} />
+      <Header text='My Shop' shoppingBagItemsNumber={shoppingBagItemsNumber} />
       <NavigationList startSearch={startSearch} searchValue={searchValue} />
       <div
         style={{
@@ -57,11 +58,13 @@ function MainPage({
           !inRequestSigninPage && (
             <ShoppingBag
               products={cart}
+              shoppingBagItemsNumber={shoppingBagItemsNumber}
+              removeFromCart={removeFromCart}
+              checkIsInFavorites={checkIsInFavorites}
+              toggleInFavorites={toggleInFavorites}
+              changeQuantityValue={changeQuantityValue}
               width='300px'
               buttonWidth='220px'
-              removeFromCart={removeFromCart}
-              toggleInFavorites={toggleInFavorites}
-              checkIsInFavorites={checkIsInFavorites}
             />
           )}
 
@@ -71,12 +74,12 @@ function MainPage({
           !inRequestSigninPage && (
             <FavoritesBox
               products={favorites}
-              width='300px'
-              buttonWidth='220px'
-              addToCart={addToCart}
               toggleInFavorites={toggleInFavorites}
+              addToCart={addToCart}
               checkIsInFavorites={checkIsInFavorites}
               clearFavoritesBox={clearFavoritesBox}
+              width='300px'
+              buttonWidth='220px'
             />
           )}
       </div>

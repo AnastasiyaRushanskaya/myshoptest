@@ -23,17 +23,23 @@ import {
 } from './categoryTypes';
 
 function App() {
-  const [products, setProducts] = useState(productArray);
+  const products = productArray;
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(null);
   const [cart, setCart] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [sizeErrorMessage, setSizeErrorMessage] = useState('');
 
-  const [quantityValue, setQuantityValue] = useState('');
-
-  function changeQuantityValue(event) {
-    setQuantityValue(event.target.value);
+  function changeQuantityValue(id, size, value) {
+    const copy = cart.map((prod) => {
+      if (prod.id === id && prod.size === size) {
+        const quantity = value ? value : prod.quantity + 1;
+        return { ...prod, quantity: +quantity };
+      } else {
+        return prod;
+      }
+    });
+    setCart(copy);
   }
 
   // const [checked, setChecked] = useState(false);
@@ -54,19 +60,46 @@ function App() {
     );
   }
 
+  function checkProductInCart(id, size) {
+    const result = cart.filter((item) => {
+      const matchId = item.id === id;
+      const matchSize = item.size === size;
+      return matchId && matchSize;
+    });
+
+    if (result.length === 0) return false;
+    return true;
+  }
+
   function addToCart(id, size) {
     if (size === '') {
       setSizeErrorMessage('Please select size');
       return;
     }
-    // проверить есть ли в карт такой объект с таким айди и размером/ если нет - добавить если да - записать ему квонтити + 1
+
+    if (checkProductInCart(id, size)) {
+      changeQuantityValue(id, size);
+      return;
+    }
+
     products.map((prod) => {
       if (prod.id === id) {
-        setCart([...cart, { ...prod, size }]);
+        setCart([...cart, { ...prod, size: size, quantity: 1 }]);
       }
     });
-    // console.log(cart);
   }
+
+  function calculateShoppingBagItemsNumber() {
+    if (cart.length !== 0) {
+      const result = cart
+        .map((item) => item.quantity)
+        .reduce((sum, current) => sum + current);
+      return result;
+    } else {
+      return 0;
+    }
+  }
+  const shoppingBagItemsNumber = calculateShoppingBagItemsNumber();
 
   function addToFavorites(id) {
     products.map((prod) => {
@@ -139,14 +172,17 @@ function App() {
             element={
               <MainPage
                 cart={cart}
-                startSearch={startSearch}
                 searchValue={searchValue}
+                favorites={favorites}
+                shoppingBagItemsNumber={shoppingBagItemsNumber}
+                startSearch={startSearch}
                 removeFromCart={removeFromCart}
                 toggleInFavorites={toggleInFavorites}
                 checkIsInFavorites={checkIsInFavorites}
-                favorites={favorites}
                 addToCart={addToCart}
                 clearFavoritesBox={clearFavoritesBox}
+                changeQuantityValue={changeQuantityValue}
+
                 // changeProductboxSize={changeProductboxSize}
               />
             }
@@ -168,13 +204,15 @@ function App() {
               element={
                 <ShoppingBag
                   products={cart}
+                  shoppingBagItemsNumber={shoppingBagItemsNumber}
+                  removeFromCart={removeFromCart}
+                  checkIsInFavorites={checkIsInFavorites}
+                  toggleInFavorites={toggleInFavorites}
+                  changeQuantityValue={changeQuantityValue}
                   width='800px'
                   buttonWidth='220px'
-                  removeFromCart={removeFromCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  quantityValue={quantityValue}
-                  changeQuantityValue={changeQuantityValue}
+                  // quantityValue={quantityValue}
+                  // changeQuantityValue={changeQuantityValue}
                 />
               }
             />
@@ -183,12 +221,12 @@ function App() {
               element={
                 <FavoritesBox
                   products={favorites}
-                  width='800px'
-                  buttonWidth='220px'
-                  addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
+                  addToCart={addToCart}
                   checkIsInFavorites={checkIsInFavorites}
                   clearFavoritesBox={clearFavoritesBox}
+                  width='800px'
+                  buttonWidth='220px'
                 />
               }
             />

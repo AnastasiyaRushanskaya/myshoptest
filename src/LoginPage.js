@@ -44,18 +44,18 @@ vouchers.'
           text='Sign in'
           width='100%'
           height='40px'
+          buttonBorder='none'
           buttonColor='black'
           buttonTextColor='#faf9f8'
-          buttonBorder='none'
         />
         <Link to='/register'>
           <CustomButton
             text='Become a member'
             width='100%'
             height='40px'
+            buttonBorder='1px solid black'
             buttonColor='#faf9f8'
             buttonTextColor='black'
-            buttonBorder='1px solid black'
           />
         </Link>
       </div>

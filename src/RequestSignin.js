@@ -21,9 +21,9 @@ function RequestSignin() {
           text='Submit'
           width='100%'
           height='40px'
+          buttonBorder='none'
           buttonColor='black'
           buttonTextColor='#faf9f8'
-          buttonBorder='none'
         />
       </div>
     </div>

@@ -23,7 +23,6 @@ const productArray = [
     cost: '€49.99',
     src: shirt,
 
-    inFavorites: false,
     category: ['Trending now'],
   },
   {
@@ -32,7 +31,6 @@ const productArray = [
     cost: '€24.99',
     src: joggers,
 
-    inFavorites: false,
     category: ['New Arrivals'],
   },
   {
@@ -40,7 +38,6 @@ const productArray = [
     name: 'Double-breasted trenchcoat',
     cost: '€69.99',
     src: trenchcoat,
-    inFavorites: false,
     category: ['Coats'],
   },
   {
@@ -48,7 +45,6 @@ const productArray = [
     name: 'Oversized T-shirt',
     cost: '€21.99',
     src: tshirt,
-    inFavorites: false,
     category: ['T-Shirts'],
   },
   {
@@ -56,7 +52,6 @@ const productArray = [
     name: '5-pack strappy tops',
     cost: '€15.99',
     src: tops,
-    inFavorites: false,
     category: ['New Arrivals', 'T-Shirts'],
   },
   {
@@ -64,7 +59,6 @@ const productArray = [
     name: 'Boxy jumper',
     cost: '€99.99',
     src: jumper,
-    inFavorites: false,
     category: ['New Arrivals'],
   },
   {
@@ -72,7 +66,6 @@ const productArray = [
     name: 'Wrap dress',
     cost: '€109',
     src: dress,
-    inFavorites: false,
     category: ['Dresses'],
   },
   {
@@ -80,7 +73,6 @@ const productArray = [
     name: 'Hooded puffer gilet',
     cost: '€119.99',
     src: gilet,
-    inFavorites: false,
     category: ['BestSellers'],
   },
   {
@@ -88,7 +80,6 @@ const productArray = [
     name: 'Fine-knit cashmere cardigan',
     cost: '€129.99',
     src: cardigan,
-    inFavorites: false,
     category: ['New Arrivals', 'BestSellers'],
   },
   {
@@ -96,7 +87,6 @@ const productArray = [
     name: 'Chunky loafers',
     cost: '€34.99',
     src: loafers,
-    inFavorites: false,
     category: ['Shoes', 'BestSellers'],
   },
   {
@@ -104,7 +94,6 @@ const productArray = [
     name: 'Textured-weave jacket',
     cost: '€69.99',
     src: jacket,
-    inFavorites: false,
     category: ['New Arrivals', 'Blazers'],
   },
   {
@@ -112,7 +101,6 @@ const productArray = [
     name: 'Slingbacks',
     cost: '€239.99',
     src: slingbacks,
-    inFavorites: false,
     category: ['New Arrivals', 'Shoes'],
   },
   {
@@ -120,7 +108,6 @@ const productArray = [
     name: 'Mini skirt',
     cost: '€19.99',
     src: miniskirt,
-    inFavorites: false,
     category: ['Skirts', 'BestSellers'],
   },
   {
@@ -128,7 +115,6 @@ const productArray = [
     name: 'Trainers',
     cost: '€29.99',
     src: trainers,
-    inFavorites: false,
     category: ['Shoes', 'BestSellers'],
   },
   {
@@ -136,7 +122,6 @@ const productArray = [
     name: 'Jute-blend shopper',
     cost: '€39.99',
     src: shopper,
-    inFavorites: false,
     category: ['Accessories', 'Trending now'],
   },
   {
@@ -144,7 +129,6 @@ const productArray = [
     name: 'Leather belt',
     cost: '€19.99',
     src: belt,
-    inFavorites: false,
     category: ['Accessories', 'BestSellers'],
   },
 ];

@@ -5,9 +5,11 @@ import ShoppingBagList from './ShoppingBagList';
 
 function ShoppingBag({
   products,
+  shoppingBagItemsNumber,
   removeFromCart,
   checkIsInFavorites,
   toggleInFavorites,
+  changeQuantityValue,
   width,
   buttonWidth,
 }) {
@@ -20,13 +22,15 @@ function ShoppingBag({
       }}
     >
       <h4 style={{ margin: '0px', textAlign: 'center' }}>
-        <i className='bi bi-bag-check'></i> Shopping bag ({products.length})
+        <i className='bi bi-bag-check'></i> Shopping bag (
+        {shoppingBagItemsNumber})
       </h4>
       <ShoppingBagList
         products={products}
         removeFromCart={removeFromCart}
         toggleInFavorites={toggleInFavorites}
         checkIsInFavorites={checkIsInFavorites}
+        changeQuantityValue={changeQuantityValue}
       />{' '}
       <br />
       {products.length !== 0 && (
@@ -36,9 +40,9 @@ function ShoppingBag({
             width={buttonWidth}
             height='30px'
             marginLeft='20px'
+            buttonBorder='1px solid black'
             buttonColor='#faf9f8'
             buttonTextColor='black'
-            buttonBorder='1px solid black'
           />
         </Link>
       )}

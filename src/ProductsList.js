@@ -17,8 +17,6 @@ function ProductList({
         name={item.name}
         cost={item.cost}
         src={item.src}
-        // category={item.category}
-        // inCart={item.inCart}
         inFavorites={inFavorites}
         addToCart={addToCart}
         toggleInFavorites={toggleInFavorites}

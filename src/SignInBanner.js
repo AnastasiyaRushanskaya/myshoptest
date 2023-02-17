@@ -36,9 +36,9 @@ function SignInBanner() {
           text='Become a member'
           width='30%'
           height='30px'
+          buttonBorder='0.6px solid black'
           buttonColor='#f7efe7'
           buttonTextColor='black'
-          buttonBorder='0.6px solid black'
         />
       </Link>
     </div>

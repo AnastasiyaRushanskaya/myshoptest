@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import shopLogo from './images/shop_logo.png';
 
-function Header({ text, products }) {
+function Header({ text, shoppingBagItemsNumber }) {
   return (
     <header style={{ marginTop: '15px', marginBottom: '15px' }}>
       <div style={{ display: 'inline-block', width: '17%' }}>
@@ -36,7 +36,8 @@ function Header({ text, products }) {
         </Link>
         <Link to='/shoppingBag' className='linkStyles'>
           <span style={{ padding: '7px' }}>
-            <i className='bi bi-bag'></i> Shopping bag ({products.length})
+            <i className='bi bi-bag'></i> Shopping bag ({shoppingBagItemsNumber}
+            )
           </span>
         </Link>
       </div>

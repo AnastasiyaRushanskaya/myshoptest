@@ -3,13 +3,13 @@ import React from 'react';
 function CustomButton({
   text,
   clickHandler,
+  iconName,
   width,
   height,
   marginLeft,
-  iconName,
+  buttonBorder,
   buttonColor,
   buttonTextColor,
-  buttonBorder,
 }) {
   return (
     <button
