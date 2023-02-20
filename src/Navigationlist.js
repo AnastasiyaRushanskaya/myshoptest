@@ -15,7 +15,7 @@ function NavigationList({ startSearch, searchValue }) {
         }}
       >
         <Link
-          to={item === 'All products' ? '/' : `/${item.split(' ').join('')}`}
+          to={item === 'All products' ? '/' : `/${item.split(' ').join('_')}`}
           className='linkStyles'
         >
           {item}
@@ -27,7 +27,7 @@ function NavigationList({ startSearch, searchValue }) {
     <div
       style={{
         display: 'inline-block',
-        width: '230px',
+        width: '260px',
         verticalAlign: 'text-top',
       }}
     >

@@ -6,6 +6,7 @@ import Footer from './Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import SignInBanner from './SignInBanner';
 import MainBanner from './MainBanner';
+import ProductsListHeader from './ProductListHeader';
 
 function MainPage({
   cart,
@@ -41,7 +42,6 @@ function MainPage({
           display: 'inline-block',
           width: '800px',
           verticalAlign: 'text-top',
-          marginLeft: '30px',
         }}
       >
         {!inRegisterPage && !inLoginPage && !inRequestSigninPage && (
@@ -52,8 +52,6 @@ function MainPage({
           !inRequestSigninPage &&
           !inFavoritesPage &&
           !inShoppingBagpage && <MainBanner />}
-
-        {/* <ProductSizeCheckBox changeProductboxSize={changeProductboxSize} /> */}
         <Outlet />
       </div>
       <div
@@ -76,6 +74,7 @@ function MainPage({
               changeQuantityValue={changeQuantityValue}
               width='300px'
               buttonWidth='220px'
+              itemBoxWidth='100%'
             />
           )}
 
@@ -91,6 +90,7 @@ function MainPage({
               clearFavoritesBox={clearFavoritesBox}
               width='300px'
               buttonWidth='220px'
+              itemBoxWidth='100%'
             />
           )}
       </div>

@@ -11,6 +11,7 @@ function FavoritesBox({
   clearFavoritesBox,
   width,
   buttonWidth,
+  itemBoxWidth,
 }) {
   return (
     <div
@@ -30,8 +31,9 @@ function FavoritesBox({
         addToCart={addToCart}
         checkIsInFavorites={checkIsInFavorites}
         toggleInFavorites={toggleInFavorites}
+        itemBoxWidth={itemBoxWidth}
       />
-      <br />
+
       {products.length !== 0 && (
         <CustomButton
           text='clear all'

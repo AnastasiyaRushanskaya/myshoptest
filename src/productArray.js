@@ -1,37 +1,108 @@
 import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js';
-import trenchcoat from './images/trenchcoat.jpeg';
-import shirt from './images/shirt.jpeg';
-import joggers from './images/joggers.jpeg';
-import tshirt from './images/tshirt.jpeg';
-import tops from './images/tops.jpeg';
-import jumper from './images/jumper.jpeg';
-import dress from './images/dress.jpeg';
-import gilet from './images/gilet.jpeg';
-import cardigan from './images/cardigan.jpeg';
-import loafers from './images/loafers.jpeg';
-import slingbacks from './images/slingbacks.jpeg';
-import trainers from './images/trainers.jpeg';
-import miniskirt from './images/miniskirt.jpeg';
-import jacket from './images/jacket.jpeg';
-import shopper from './images/shopper.jpeg';
-import belt from './images/belt.jpeg';
+
+import {
+  trenchcoat,
+  shirt,
+  joggers,
+  tshirt,
+  tops,
+  jumper,
+  dress,
+  gilet,
+  cardigan,
+  loafers,
+  slingbacks,
+  trainers,
+  miniskirt,
+  jacket,
+  shopper,
+  belt,
+  tiebeltcoat,
+  shacket,
+  cottontrenchcoat,
+  flounceddress,
+  lacetrimmedshirtdress,
+  grandpacollardress,
+  tailoredminiskirt,
+  longflaredsatinskirt,
+  ribknittop,
+  ribbedhenleytop,
+  doublebreastedblazer,
+  singlebreastedjacket,
+  rhinestonebuttonblazer,
+} from './imagesImport';
 
 const productArray = [
+  {
+    id: nanoid(15),
+    name: 'Shacket',
+    cost: '€69.99',
+    src: shacket,
+    category: ['Trending now', 'Coats'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Single-breasted Jacket',
+    cost: '€49.99',
+    src: singlebreastedjacket,
+    category: ['Blazers'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Rib-knit Top',
+    cost: '€14.99',
+    src: ribknittop,
+    category: ['Trending now', 'T-Shirts'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Double-breasted Blazer',
+    cost: '€34.99',
+    src: doublebreastedblazer,
+    category: ['Trending now', 'Blazers'],
+  },
   {
     id: nanoid(15),
     name: 'Linen-blend shirt',
     cost: '€49.99',
     src: shirt,
-
     category: ['Trending now'],
   },
+  {
+    id: nanoid(15),
+    name: 'Flounced dress',
+    cost: '€29.99',
+    src: flounceddress,
+    category: ['Trending now', 'Dresses'],
+  },
+
   {
     id: nanoid(15),
     name: 'Straight joggers',
     cost: '€24.99',
     src: joggers,
-
     category: ['New Arrivals'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Rhines-tone Button Blazer',
+    cost: '€49.99',
+    src: rhinestonebuttonblazer,
+    category: ['Blazers'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Tie-belt coat',
+    cost: '€49.99',
+    src: tiebeltcoat,
+    category: ['New Arrivals', 'Coats'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Lace-trimmed shirt dress',
+    cost: '€39.99',
+    src: lacetrimmedshirtdress,
+    category: ['New Arrivals', 'Dresses'],
   },
   {
     id: nanoid(15),
@@ -131,6 +202,71 @@ const productArray = [
     src: belt,
     category: ['Accessories', 'BestSellers'],
   },
+  {
+    id: nanoid(15),
+    name: 'Long Flared Satin Skirt',
+    cost: '€29.99',
+    src: longflaredsatinskirt,
+    category: ['Skirts'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Cotton trenchcoat',
+    cost: '€59.99',
+    src: cottontrenchcoat,
+    category: ['Coats', 'BestSellers'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Tailored Mini Skirt',
+    cost: '€15.99',
+    src: tailoredminiskirt,
+    category: ['Skirts', 'Trending now'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Ribbed Henley Top',
+    cost: '€19.99',
+    src: ribbedhenleytop,
+    category: ['BestSellers', 'T-Shirts'],
+  },
+  {
+    id: nanoid(15),
+    name: 'Grand pacollar dress',
+    cost: '€35.99',
+    src: grandpacollardress,
+    category: ['Dresses'],
+  },
 ];
 
 export default productArray;
+
+// import trenchcoat from './images/trenchcoat.jpeg';
+// import shirt from './images/shirt.jpeg';
+// import joggers from './images/joggers.jpeg';
+// import tshirt from './images/tshirt.jpeg';
+// import tops from './images/tops.jpeg';
+// import jumper from './images/jumper.jpeg';
+// import dress from './images/dress.jpeg';
+// import gilet from './images/gilet.jpeg';
+// import cardigan from './images/cardigan.jpeg';
+// import loafers from './images/loafers.jpeg';
+// import slingbacks from './images/slingbacks.jpeg';
+// import trainers from './images/trainers.jpeg';
+// import miniskirt from './images/miniskirt.jpeg';
+// import jacket from './images/jacket.jpeg';
+// import shopper from './images/shopper.jpeg';
+// import belt from './images/belt.jpeg';
+// import tiebeltcoat from './images/tiebeltcoat.jpeg';
+// import shacket from './images/shacket.jpeg';
+// import cottontrenchcoat from './images/cottontrenchcoat.jpeg';
+// import flounceddress from './images/flounceddress.jpeg';
+// import lacetrimmedshirtdress from './images/lacetrimmedshirtdress.jpeg';
+// import grandpacollardress from './images/grandpacollardress.jpeg';
+// import tailoredminiskirt from './images/tailoredminiskirt.jpeg';
+// import longflaredsatinskirt from './images/longflaredsatinskirt.jpeg';
+// import ribknittop from './images/ribknittop.jpeg';
+// import ribbedhenleytop from './images/ribbedhenleytop.jpeg';
+// import doublebreastedblazer from './images/doublebreastedblazer.jpeg';
+// import singlebreastedjacket from './images/singlebreastedjacket.jpeg';
+// import rhinestonebuttonblazer from './images/rhinestonebuttonblazer.jpeg';

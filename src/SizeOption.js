@@ -15,8 +15,8 @@ function SizeOption({ border, selectSize, size }) {
       value={size}
       onChange={selectSize}
       style={{
-        marginBottom: '40px',
-        marginTop: '45px',
+        // marginBottom: '40px',
+        // marginTop: '45px',
         height: '20px',
         borderRadius: '5px',
         outline: 'none',

@@ -6,6 +6,7 @@ function FavoritesList({
   addToCart,
   checkIsInFavorites,
   toggleInFavorites,
+  itemBoxWidth,
 }) {
   const items = products.map((item) => {
     const inFavorites = checkIsInFavorites(item.id);
@@ -17,10 +18,23 @@ function FavoritesList({
         toggleInFavorites={toggleInFavorites}
         addToCart={addToCart}
         products={products}
+        itemBoxWidth={itemBoxWidth}
       />
     );
   });
-  return items;
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        width: '100%',
+        height: 'auto',
+      }}
+    >
+      {' '}
+      {items}
+    </div>
+  );
 }
 
 export default FavoritesList;

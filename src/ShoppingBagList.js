@@ -7,6 +7,7 @@ function ShoppingBagList({
   toggleInFavorites,
   checkIsInFavorites,
   changeQuantityValue,
+  itemBoxWidth,
 }) {
   const items = products.map((item, index) => {
     const inFavorites = checkIsInFavorites(item.id);
@@ -18,10 +19,23 @@ function ShoppingBagList({
         removeFromCart={() => removeFromCart(index)}
         toggleInFavorites={toggleInFavorites}
         changeQuantityValue={changeQuantityValue}
+        itemBoxWidth={itemBoxWidth}
       />
     );
   });
-  return items;
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        width: '100%',
+        height: 'auto',
+      }}
+    >
+      {' '}
+      {items}
+    </div>
+  );
 }
 
 export default ShoppingBagList;

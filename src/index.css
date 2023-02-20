@@ -29,4 +29,12 @@ code {
   text-decoration: underline;
 }
 
+.big {
+  width: 46.2%;
+}
+
+.small {
+  width: 29.55%;
+}
+
 @import 'bootstrap-icons/font/bootstrap-icons.css';

@@ -11,6 +11,7 @@ function FavoritesProductBox({
   addToCart,
   toggleInFavorites,
   changeSizeHandler,
+  itemBoxWidth,
 }) {
   const { name, cost, src, id } = product;
   const [size, setSize] = useState('');
@@ -21,47 +22,54 @@ function FavoritesProductBox({
   return (
     <div
       style={{
-        display: 'inline-block',
-        position: 'relative',
-        width: '220px',
-        height: '200px',
-        margin: '20px',
-        fontSize: '13px',
+        // width: '29.55%',
+        width: itemBoxWidth,
+        // maxWidth: '320px',
+        height: '100%',
+        margin: '15px',
+        fontSize: '0.8em',
       }}
     >
       <p style={{ textAlign: 'center' }}>{name}</p>
-      <ProductImage src={src} />
-
-      <div
-        style={{
-          width: 'auto',
-          marginLeft: '5px',
-        }}
-      >
-        <span
+      <div style={{ display: 'flex' }}>
+        <ProductImage src={src} />
+        <div
           style={{
-            display: 'block',
-            fontSize: '1.2em',
+            display: 'flex',
+            width: '50%',
+            height: 'auto',
+            flexWrap: 'wrap',
           }}
         >
-          {cost}
-        </span>
-        <SizeOption selectSize={changeSizeHandler} size={size} />
-        <br />
-        <AddToFavoritesIcon
-          inFavorites={inFavorites}
-          clickHandler={() => toggleInFavorites(id)}
-        />{' '}
-        <CustomButton
-          text='add'
-          clickHandler={() => addToCart(id, size)}
-          iconName='bi bi-bag'
-          width='70px'
-          height='20px'
-          buttonBorder='none'
-          buttonColor='black'
-          buttonTextColor='#faf9f8'
-        />
+          <span
+            style={{
+              display: 'block',
+              width: '100%',
+              fontSize: '1.2em',
+            }}
+          >
+            {cost}
+          </span>
+          <SizeOption selectSize={changeSizeHandler} size={size} />
+          <div
+            style={{ display: 'inline', width: '100%', alignSelf: 'flex-end' }}
+          >
+            <AddToFavoritesIcon
+              inFavorites={inFavorites}
+              clickHandler={() => toggleInFavorites(id)}
+            />{' '}
+            <CustomButton
+              text='add'
+              clickHandler={() => addToCart(id, size)}
+              iconName='bi bi-bag'
+              width='70px'
+              height='20px'
+              buttonBorder='none'
+              buttonColor='black'
+              buttonTextColor='#faf9f8'
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

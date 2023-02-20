@@ -1,12 +1,15 @@
 import React from 'react';
 import ProductBox from './ProductBox';
+import ProductsListHeader from './ProductListHeader';
 
 function ProductList({
   products,
   addToCart,
   toggleInFavorites,
   checkIsInFavorites,
-  checked,
+  twoItemsInLine,
+  threeItemsInLine,
+  changeNumberOfItemsInLine,
 }) {
   const items = products.map((item) => {
     const inFavorites = checkIsInFavorites(item.id);
@@ -20,11 +23,31 @@ function ProductList({
         inFavorites={inFavorites}
         addToCart={addToCart}
         toggleInFavorites={toggleInFavorites}
-        // checked={checked}
+        twoItemsInLine={twoItemsInLine}
+        threeItemsInLine={threeItemsInLine}
       />
     );
   });
-  return items;
+  return (
+    <>
+      <ProductsListHeader
+        products={products}
+        twoItemsInLine={twoItemsInLine}
+        threeItemsInLine={threeItemsInLine}
+        changeNumberOfItemsInLine={changeNumberOfItemsInLine}
+      />
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          width: '100%',
+          height: 'auto',
+        }}
+      >
+        {items}
+      </div>
+    </>
+  );
 }
 
 export default ProductList;

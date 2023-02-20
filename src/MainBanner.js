@@ -13,8 +13,8 @@ function MainBanner() {
         backgroundSize: '100% auto',
       }}
     >
-      <InsideMAinBannerBox text='New season arrivals' address='/NewArrivals' />
-      <InsideMAinBannerBox text='Trending now' address='/TrendingNow' />
+      <InsideMAinBannerBox text='New season arrivals' address='/New_Arrivals' />
+      <InsideMAinBannerBox text='Trending now' address='/Trending_now' />
       <InsideMAinBannerBox text='Our Bestsellers' address='/BestSellers' />
     </div>
   );

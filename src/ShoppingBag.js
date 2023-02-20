@@ -12,6 +12,7 @@ function ShoppingBag({
   changeQuantityValue,
   width,
   buttonWidth,
+  itemBoxWidth,
 }) {
   return (
     <div
@@ -33,6 +34,7 @@ function ShoppingBag({
         toggleInFavorites={toggleInFavorites}
         checkIsInFavorites={checkIsInFavorites}
         changeQuantityValue={changeQuantityValue}
+        itemBoxWidth={itemBoxWidth}
       />{' '}
       <br />
       {products.length !== 0 && (

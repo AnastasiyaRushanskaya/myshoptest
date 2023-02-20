@@ -29,6 +29,14 @@ function App() {
   const [cart, setCart] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [sizeErrorMessage, setSizeErrorMessage] = useState('');
+  const [twoItemsInLine, setTowItemsInLine] = useState(false);
+  const [threeItemsInLine, setThreeItemsInLine] = useState(true);
+
+  function changeNumberOfItemsInLine() {
+    setTowItemsInLine(!twoItemsInLine);
+    setThreeItemsInLine(!threeItemsInLine);
+    console.log('done');
+  }
 
   function changeQuantityValue(id, size, value) {
     const copy = cart.map((prod) => {
@@ -41,12 +49,6 @@ function App() {
     });
     setCart(copy);
   }
-
-  // const [checked, setChecked] = useState(false);
-
-  // function changeProductboxSize() {
-  //   setChecked(!checked);
-  // }
 
   useEffect(() => {
     let timerId = setTimeout(() => setSizeErrorMessage(null), 4000);
@@ -183,8 +185,6 @@ function App() {
                 addToCart={addToCart}
                 clearFavoritesBox={clearFavoritesBox}
                 changeQuantityValue={changeQuantityValue}
-
-                // changeProductboxSize={changeProductboxSize}
               />
             }
           >
@@ -193,10 +193,12 @@ function App() {
               element={
                 <ProductList
                   products={searchValue ? searchResults : products}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
-                  // checked={checked}
+                  changeNumberOfItemsInLine={changeNumberOfItemsInLine}
                 />
               }
             />
@@ -212,8 +214,7 @@ function App() {
                   changeQuantityValue={changeQuantityValue}
                   width='800px'
                   buttonWidth='220px'
-                  // quantityValue={quantityValue}
-                  // changeQuantityValue={changeQuantityValue}
+                  itemBoxWidth='29.55%'
                 />
               }
             />
@@ -228,6 +229,7 @@ function App() {
                   clearFavoritesBox={clearFavoritesBox}
                   width='800px'
                   buttonWidth='220px'
+                  itemBoxWidth='29.55%'
                 />
               }
             />
@@ -235,7 +237,7 @@ function App() {
             <Route path='/login' element={<LoginPage />} />
             <Route path='/requestSignin' element={<RequestSignin />} />
             <Route
-              path='/NewArrivals'
+              path='/New_Arrivals'
               element={
                 <ProductList
                   products={newArrivals}
@@ -246,7 +248,7 @@ function App() {
               }
             />
             <Route
-              path='/Trendingnow'
+              path='/Trending_now'
               element={
                 <ProductList
                   products={trendingnow}
