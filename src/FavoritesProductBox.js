@@ -22,23 +22,26 @@ function FavoritesProductBox({
   return (
     <div
       style={{
-        // width: '29.55%',
         width: itemBoxWidth,
-        // maxWidth: '320px',
         height: '100%',
         margin: '15px',
+        paddingLeft: '20px',
         fontSize: '0.8em',
       }}
     >
       <p style={{ textAlign: 'center' }}>{name}</p>
       <div style={{ display: 'flex' }}>
-        <ProductImage src={src} />
+        <div style={{ width: '56%', height: '100%' }}>
+          <ProductImage src={src} />
+        </div>
         <div
           style={{
             display: 'flex',
             width: '50%',
             height: 'auto',
             flexWrap: 'wrap',
+            paddingLeft: '20px',
+            paddingBottom: '6px',
           }}
         >
           <span

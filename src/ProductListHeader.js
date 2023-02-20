@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 function ProductsListHeader({
   products,
-  changeNumberOfItemsInLine,
   twoItemsInLine,
   threeItemsInLine,
+  changeSizeToBig,
+  changeSizeToSmall,
 }) {
   const currentLocation = useLocation();
   const itemsCategory = currentLocation.pathname.slice(1).replace('_', ' ');
-
-  //   const [twoItemsInLine, setTowItemsInLine] = useState(false);
-  //   const [threeItemsInLine, setThreeItemsInLine] = useState(true);
-
-  //   function changeNumberOfItemsInLine() {
-  //     setTowItemsInLine(!twoItemsInLine);
-  //     setThreeItemsInLine(!threeItemsInLine);
-  //   }
 
   return (
     <div
@@ -56,11 +49,11 @@ function ProductsListHeader({
       >
         <div
           style={{
-            paddingLeft: '10px',
             display: 'inline-block',
+            paddingLeft: '10px',
             cursor: 'pointer',
           }}
-          onClick={changeNumberOfItemsInLine}
+          onClick={changeSizeToBig}
         >
           <i
             className={twoItemsInLine ? 'bi bi-square-fill' : 'bi bi-square'}
@@ -73,11 +66,11 @@ function ProductsListHeader({
         </div>
         <div
           style={{
-            paddingLeft: '10px',
             display: 'inline-block',
+            paddingLeft: '10px',
             cursor: 'pointer',
           }}
-          onClick={changeNumberOfItemsInLine}
+          onClick={changeSizeToSmall}
         >
           <i
             className={threeItemsInLine ? 'bi bi-square-fill' : 'bi bi-square'}

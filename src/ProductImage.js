@@ -1,15 +1,14 @@
 import React from 'react';
 
-function ProductImage({ src }) {
+function ProductImage({ src, src2, imageChange }) {
   return (
     <img
-      src={src}
+      src={imageChange ? src2 : src}
       style={{
-        width: '50%',
+        width: '100%',
         height: '100%',
       }}
     ></img>
   );
 }
-
 export default ProductImage;

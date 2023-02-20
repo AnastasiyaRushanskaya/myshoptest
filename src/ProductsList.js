@@ -9,7 +9,8 @@ function ProductList({
   checkIsInFavorites,
   twoItemsInLine,
   threeItemsInLine,
-  changeNumberOfItemsInLine,
+  changeSizeToBig,
+  changeSizeToSmall,
 }) {
   const items = products.map((item) => {
     const inFavorites = checkIsInFavorites(item.id);
@@ -20,6 +21,7 @@ function ProductList({
         name={item.name}
         cost={item.cost}
         src={item.src}
+        src2={item.src2}
         inFavorites={inFavorites}
         addToCart={addToCart}
         toggleInFavorites={toggleInFavorites}
@@ -34,7 +36,8 @@ function ProductList({
         products={products}
         twoItemsInLine={twoItemsInLine}
         threeItemsInLine={threeItemsInLine}
-        changeNumberOfItemsInLine={changeNumberOfItemsInLine}
+        changeSizeToBig={changeSizeToBig}
+        changeSizeToSmall={changeSizeToSmall}
       />
       <div
         style={{

@@ -29,13 +29,22 @@ function App() {
   const [cart, setCart] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [sizeErrorMessage, setSizeErrorMessage] = useState('');
-  const [twoItemsInLine, setTowItemsInLine] = useState(false);
+  const [twoItemsInLine, setTwoItemsInLine] = useState(false);
   const [threeItemsInLine, setThreeItemsInLine] = useState(true);
 
-  function changeNumberOfItemsInLine() {
-    setTowItemsInLine(!twoItemsInLine);
-    setThreeItemsInLine(!threeItemsInLine);
-    console.log('done');
+  function changeSizeToSmall() {
+    if (!threeItemsInLine) {
+      setThreeItemsInLine(true);
+      setTwoItemsInLine(false);
+      console.log('ololo');
+    }
+  }
+
+  function changeSizeToBig() {
+    if (!twoItemsInLine) {
+      setTwoItemsInLine(true);
+      setThreeItemsInLine(false);
+    }
   }
 
   function changeQuantityValue(id, size, value) {
@@ -198,7 +207,8 @@ function App() {
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
-                  changeNumberOfItemsInLine={changeNumberOfItemsInLine}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -214,7 +224,7 @@ function App() {
                   changeQuantityValue={changeQuantityValue}
                   width='800px'
                   buttonWidth='220px'
-                  itemBoxWidth='29.55%'
+                  itemBoxWidth='27%'
                 />
               }
             />
@@ -229,7 +239,7 @@ function App() {
                   clearFavoritesBox={clearFavoritesBox}
                   width='800px'
                   buttonWidth='220px'
-                  itemBoxWidth='29.55%'
+                  itemBoxWidth='27%'
                 />
               }
             />
@@ -241,9 +251,13 @@ function App() {
               element={
                 <ProductList
                   products={newArrivals}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -252,9 +266,13 @@ function App() {
               element={
                 <ProductList
                   products={trendingnow}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -263,9 +281,13 @@ function App() {
               element={
                 <ProductList
                   products={bestSellers}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -274,9 +296,13 @@ function App() {
               element={
                 <ProductList
                   products={dresses}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -285,9 +311,13 @@ function App() {
               element={
                 <ProductList
                   products={skirts}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -296,9 +326,13 @@ function App() {
               element={
                 <ProductList
                   products={tShirts}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -307,9 +341,13 @@ function App() {
               element={
                 <ProductList
                   products={blazers}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -318,9 +356,13 @@ function App() {
               element={
                 <ProductList
                   products={coats}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -329,9 +371,13 @@ function App() {
               element={
                 <ProductList
                   products={shoes}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />
@@ -340,9 +386,13 @@ function App() {
               element={
                 <ProductList
                   products={accessories}
+                  twoItemsInLine={twoItemsInLine}
+                  threeItemsInLine={threeItemsInLine}
                   addToCart={addToCart}
                   toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
+                  changeSizeToBig={changeSizeToBig}
+                  changeSizeToSmall={changeSizeToSmall}
                 />
               }
             />

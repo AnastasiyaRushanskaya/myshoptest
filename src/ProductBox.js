@@ -13,11 +13,14 @@ function ProductBox({
   addToCart,
   toggleInFavorites,
   twoItemsInLine,
+  src2,
 }) {
   const [size, setSize] = useState('');
+  const [imageChange, setImageChange] = useState(false);
 
-  // const small = '29.55%';
-  // const big = '46.2%';
+  function changeImage() {
+    setImageChange(!imageChange);
+  }
 
   function changeSizeHandler(event) {
     setSize(event.target.value);
@@ -27,22 +30,30 @@ function ProductBox({
     <div
       className={twoItemsInLine ? 'big' : 'small'}
       style={{
-        // width: { small },
-        // width: '29.55%',
         height: 'auto',
         margin: '15px',
         fontSize: '0.8em',
+        paddingLeft: '20px',
       }}
     >
       <p style={{ textAlign: 'center' }}>{name}</p>
       <div style={{ display: 'flex' }}>
-        <ProductImage src={src} />
+        <div
+          onMouseEnter={changeImage}
+          onMouseLeave={changeImage}
+          style={{ width: '56%', height: '100%' }}
+        >
+          <ProductImage src={src} src2={src2} imageChange={imageChange} />
+        </div>
+
         <div
           style={{
             display: 'flex',
             width: '50%',
             height: 'auto',
             flexWrap: 'wrap',
+            paddingLeft: '10px',
+            paddingBottom: '6px',
           }}
         >
           <span
@@ -80,55 +91,3 @@ function ProductBox({
 }
 
 export default ProductBox;
-
-// return (
-//   <div
-//     style={{
-//       width: '29.55%',
-//       // width: '46.2%',
-//       height: 'auto',
-//       margin: '15px',
-//       fontSize: '0.8em',
-
-//     }}
-//   >
-//     <p style={{ textAlign: 'center', marginTop: '5px' }}>{name}</p>
-
-//     <ProductImage src={src} />
-//     <div
-//       style={{
-//         display: 'flex',
-//         width: '50%',
-//         height: '100%',
-//         flexWrap: 'wrap',
-//         // marginLeft: '5px',
-//         alignItems: 'flex-end',
-//       }}
-//     >
-//       <span
-//         style={{
-//           display: 'block',
-//           fontSize: '1.2em',
-//         }}
-//       >
-//         {cost}
-//       </span>
-//       <SizeOption selectSize={changeSizeHandler} size={size} />
-//       {/* <br /> */}
-//       <AddToFavoritesIcon
-//         inFavorites={inFavorites}
-//         clickHandler={() => toggleInFavorites(id)}
-//       />{' '}
-//       <CustomButton
-//         text='add'
-//         clickHandler={() => addToCart(id, size)}
-//         iconName='bi bi-bag'
-//         width='80px'
-//         height='20px'
-//         buttonBorder='none'
-//         buttonColor='black'
-//         buttonTextColor='#faf9f8'
-//       />
-//     </div>
-//   </div>
-// );

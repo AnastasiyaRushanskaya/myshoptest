@@ -36,7 +36,6 @@ function ShoppingBag({
         changeQuantityValue={changeQuantityValue}
         itemBoxWidth={itemBoxWidth}
       />{' '}
-      <br />
       {products.length !== 0 && (
         <Link to='/shoppingBag'>
           <CustomButton

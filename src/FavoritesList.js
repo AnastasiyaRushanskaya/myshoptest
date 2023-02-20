@@ -31,7 +31,6 @@ function FavoritesList({
         height: 'auto',
       }}
     >
-      {' '}
       {items}
     </div>
   );

@@ -30,11 +30,11 @@ code {
 }
 
 .big {
-  width: 46.2%;
+  width: 43.75%;
 }
 
 .small {
-  width: 29.55%;
+  width: 27%;
 }
 
 @import 'bootstrap-icons/font/bootstrap-icons.css';
