@@ -15,9 +15,8 @@ function FavoritesList({
         product={item}
         key={item.id}
         inFavorites={inFavorites}
-        toggleInFavorites={toggleInFavorites}
         addToCart={addToCart}
-        products={products}
+        toggleInFavorites={toggleInFavorites}
         itemBoxWidth={itemBoxWidth}
       />
     );

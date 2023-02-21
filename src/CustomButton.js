@@ -25,7 +25,6 @@ function CustomButton({
         cursor: 'pointer',
         backgroundColor: buttonColor,
         color: buttonTextColor,
-        fontWeight: 'bold',
       }}
     >
       <i className={iconName}></i> {text}

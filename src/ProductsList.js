@@ -4,11 +4,11 @@ import ProductsListHeader from './ProductListHeader';
 
 function ProductList({
   products,
+  twoItemsInLine,
+  threeItemsInLine,
   addToCart,
   toggleInFavorites,
   checkIsInFavorites,
-  twoItemsInLine,
-  threeItemsInLine,
   changeSizeToBig,
   changeSizeToSmall,
 }) {

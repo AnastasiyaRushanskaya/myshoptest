@@ -1,13 +1,14 @@
+import React, { Profiler } from 'react';
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import productArray from './productArray';
 import ProductList from './ProductsList';
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import FavoritesBox from './FavoritesBox';
 import ShoppingBag from './ShoppingBag';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
+import ProfilePage from './ProfilePage';
 import RequestSignin from './RequestSignin';
 import {
   newArrivals,
@@ -31,21 +32,7 @@ function App() {
   const [sizeErrorMessage, setSizeErrorMessage] = useState('');
   const [twoItemsInLine, setTwoItemsInLine] = useState(false);
   const [threeItemsInLine, setThreeItemsInLine] = useState(true);
-
-  function changeSizeToSmall() {
-    if (!threeItemsInLine) {
-      setThreeItemsInLine(true);
-      setTwoItemsInLine(false);
-      console.log('ololo');
-    }
-  }
-
-  function changeSizeToBig() {
-    if (!twoItemsInLine) {
-      setTwoItemsInLine(true);
-      setThreeItemsInLine(false);
-    }
-  }
+  const [isLogin, setIsLogin] = useState(false);
 
   function changeQuantityValue(id, size, value) {
     const copy = cart.map((prod) => {
@@ -101,16 +88,6 @@ function App() {
     });
   }
 
-  function calculateShoppingBagItemsNumber() {
-    if (cart.length !== 0) {
-      const result = cart
-        .map((item) => item.quantity)
-        .reduce((sum, current) => sum + current);
-      return result;
-    } else {
-      return 0;
-    }
-  }
   const shoppingBagItemsNumber = calculateShoppingBagItemsNumber();
 
   function addToFavorites(id) {
@@ -150,25 +127,51 @@ function App() {
   function clearFavoritesBox() {
     setFavorites([]);
   }
+
+  function calculateShoppingBagItemsNumber() {
+    if (cart.length !== 0) {
+      const result = cart
+        .map((item) => item.quantity)
+        .reduce((sum, current) => sum + current);
+      return result;
+    } else {
+      return 0;
+    }
+  }
+
+  function changeSizeToSmall() {
+    if (!threeItemsInLine) {
+      setThreeItemsInLine(true);
+      setTwoItemsInLine(false);
+      console.log('ololo');
+    }
+  }
+
+  function changeSizeToBig() {
+    if (!twoItemsInLine) {
+      setTwoItemsInLine(true);
+      setThreeItemsInLine(false);
+    }
+  }
   return (
     <>
       {' '}
       {sizeErrorMessage && (
         <div
           style={{
-            textAlign: 'center',
             position: 'fixed',
-            width: '200px',
-            height: '25px',
-            fontSize: '0.9em',
-            color: '#faf9f8',
-            borderRadius: '8px',
-            opacity: '0.75',
-            backgroundColor: 'black',
             top: '210px',
             left: '550px',
-            paddingTop: '4px',
             zIndex: 99,
+            width: '200px',
+            height: '25px',
+            paddingTop: '4px',
+            borderRadius: '8px',
+            textAlign: 'center',
+            opacity: '0.75',
+            fontSize: '0.9em',
+            color: '#faf9f8',
+            backgroundColor: 'black',
           }}
         >
           {' '}
@@ -187,6 +190,7 @@ function App() {
                 searchValue={searchValue}
                 favorites={favorites}
                 shoppingBagItemsNumber={shoppingBagItemsNumber}
+                isLogin={isLogin}
                 startSearch={startSearch}
                 removeFromCart={removeFromCart}
                 toggleInFavorites={toggleInFavorites}
@@ -245,6 +249,7 @@ function App() {
             />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/login' element={<LoginPage />} />
+            <Route path='/yourprofile' element={<ProfilePage />} />
             <Route path='/requestSignin' element={<RequestSignin />} />
             <Route
               path='/New_Arrivals'

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import shopLogo from './images/shop_logo.png';
 
-function Header({ text, shoppingBagItemsNumber, favorites }) {
+function Header({ text, shoppingBagItemsNumber, favorites, isLogin }) {
   return (
     <header style={{ marginTop: '15px', marginBottom: '15px' }}>
       <div style={{ display: 'inline-block', width: '17%' }}>
@@ -24,9 +24,10 @@ function Header({ text, shoppingBagItemsNumber, favorites }) {
         {text}
       </h1>
       <div style={{ display: 'inline-block', width: '25%', fontSize: '0.8em' }}>
-        <Link to='/login' className='linkStyles'>
+        <Link to={isLogin ? '/yourprofile' : '/login'} className='linkStyles'>
           <span style={{ padding: '7px' }}>
-            <i className='bi bi-person'></i> Sign in
+            <i className='bi bi-person'></i>{' '}
+            {isLogin ? 'Your profile' : 'Sign in'}
           </span>
         </Link>
         <Link to='/favorites' className='linkStyles'>

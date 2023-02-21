@@ -1,5 +1,5 @@
 import React from 'react';
-import EmailAndPasswordInputBox from './EmailAndPasswordInputBox';
+import EmailAndPasswordInputBox from './LoginAndRegisterInputBox';
 import LoginAndRegisterHeader from './LoginAndRegisterHeader';
 import CustomButton from './CustomButton';
 

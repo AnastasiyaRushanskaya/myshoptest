@@ -1,9 +1,10 @@
 import React from 'react';
-import EmailAndPasswordInputBox from './EmailAndPasswordInputBox';
-import CustomButton from './CustomButton';
 import { Link } from 'react-router-dom';
+import LoginAndRegisterInputBox from './LoginAndRegisterInputBox';
+import CustomButton from './CustomButton';
 import LoginAndRegisterHeader from './LoginAndRegisterHeader';
 import LoginAndRegisterCheckbox from './LoginAndRegisterCheckbox';
+import LoginAndRegisterInputBoxName from './LoginAndRegisterInputBoxName';
 
 function LoginPage() {
   return (
@@ -19,8 +20,10 @@ vouchers.'
           margin: '0 auto',
         }}
       >
-        <EmailAndPasswordInputBox inputBoxName='Email' />
-        <EmailAndPasswordInputBox inputBoxName='Create password' />
+        <LoginAndRegisterInputBoxName name='Email' />
+        <LoginAndRegisterInputBox width='100%' />
+        <LoginAndRegisterInputBoxName name="Create password'" />
+        <LoginAndRegisterInputBox width='100%' />
         <div
           style={{
             display: 'flex',

@@ -6,13 +6,13 @@ import Footer from './Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import SignInBanner from './SignInBanner';
 import MainBanner from './MainBanner';
-import ProductsListHeader from './ProductListHeader';
 
 function MainPage({
   cart,
   searchValue,
   favorites,
   shoppingBagItemsNumber,
+  isLogin,
   startSearch,
   removeFromCart,
   toggleInFavorites,
@@ -20,13 +20,12 @@ function MainPage({
   addToCart,
   clearFavoritesBox,
   changeQuantityValue,
-
-  // changeProductboxSize,
 }) {
   const inShoppingBagpage = useLocation().pathname === '/shoppingBag';
   const inFavoritesPage = useLocation().pathname === '/favorites';
   const inRegisterPage = useLocation().pathname === '/register';
   const inLoginPage = useLocation().pathname === '/login';
+  const inProfilePage = useLocation().pathname === '/yourprofile';
   const inRequestSigninPage = useLocation().pathname === '/requestSignin';
 
   return (
@@ -35,6 +34,7 @@ function MainPage({
         text='My Shop'
         shoppingBagItemsNumber={shoppingBagItemsNumber}
         favorites={favorites}
+        isLogin={isLogin}
       />
       <NavigationList startSearch={startSearch} searchValue={searchValue} />
       <div
@@ -44,11 +44,13 @@ function MainPage({
           verticalAlign: 'text-top',
         }}
       >
-        {!inRegisterPage && !inLoginPage && !inRequestSigninPage && (
-          <SignInBanner />
-        )}
         {!inRegisterPage &&
           !inLoginPage &&
+          !inProfilePage &&
+          !inRequestSigninPage && <SignInBanner />}
+        {!inRegisterPage &&
+          !inLoginPage &&
+          !inProfilePage &&
           !inRequestSigninPage &&
           !inFavoritesPage &&
           !inShoppingBagpage && <MainBanner />}

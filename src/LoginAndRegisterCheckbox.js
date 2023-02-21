@@ -5,8 +5,8 @@ function LoginAndRegisterCheckbox({ text }) {
     <div
       style={{
         marginTop: '15px',
-        fontSize: '0.8em',
         textAlign: 'justify',
+        fontSize: '0.8em',
       }}
     >
       <input type='checkbox' id='checkbox' style={{ marginLeft: '0' }} />

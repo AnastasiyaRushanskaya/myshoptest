@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function MonthOfBirthOption() {
+function MonthOfBirthOption({ value, changeHandler }) {
   const months = [
     'January',
     'February',
@@ -15,7 +15,6 @@ function MonthOfBirthOption() {
     'November',
     'December',
   ];
-  const [value, setValue] = useState('');
 
   const monthOptions = months.map((month, index) => {
     return <option key={index}>{month}</option>;
@@ -24,12 +23,12 @@ function MonthOfBirthOption() {
   return (
     <select
       value={value}
-      onChange={(event) => setValue(event.target.value)}
+      onChange={(event) => changeHandler(event.target.value)}
       style={{
         width: '30%',
-        height: '30px',
-        marginRight: '20px',
+        height: '40px',
         boxSizing: 'border-box',
+        border: '0.3px solid grey',
       }}
     >
       {monthOptions}
