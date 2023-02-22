@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useForm } from 'react';
 
 function ProfilePage() {
-  return <div> ololo</div>;
+  const { register } = useForm();
+
+  return <div style={{ width: '80%', margin: '0 auto' }}></div>;
 }
 
 export default ProfilePage;
