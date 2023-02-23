@@ -1,10 +1,10 @@
 import React from 'react';
 
-function LoginAndRegisterInputBoxName({ name }) {
+function LoginAndRegisterInputBoxName({ name, color }) {
   return (
     <span style={{ fontSize: '0.7em' }}>
       {name}
-      <sup style={{ color: 'red' }}>*</sup>
+      <sup style={{ color: color }}>*</sup>
     </span>
   );
 }

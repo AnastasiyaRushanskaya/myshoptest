@@ -25,7 +25,7 @@ function MainPage({
   const inFavoritesPage = useLocation().pathname === '/favorites';
   const inRegisterPage = useLocation().pathname === '/register';
   const inLoginPage = useLocation().pathname === '/login';
-  const inProfilePage = useLocation().pathname === '/yourprofile';
+  const inAccountPage = useLocation().pathname === '/account';
   const inRequestSigninPage = useLocation().pathname === '/requestSignin';
 
   return (
@@ -44,13 +44,14 @@ function MainPage({
           verticalAlign: 'text-top',
         }}
       >
-        {!inRegisterPage &&
+        {!isLogin &&
+          !inRegisterPage &&
           !inLoginPage &&
-          !inProfilePage &&
+          !inAccountPage &&
           !inRequestSigninPage && <SignInBanner />}
         {!inRegisterPage &&
           !inLoginPage &&
-          !inProfilePage &&
+          !inAccountPage &&
           !inRequestSigninPage &&
           !inFavoritesPage &&
           !inShoppingBagpage && <MainBanner />}

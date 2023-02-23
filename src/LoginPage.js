@@ -20,9 +20,9 @@ vouchers.'
           margin: '0 auto',
         }}
       >
-        <LoginAndRegisterInputBoxName name='Email' />
+        <LoginAndRegisterInputBoxName name='Email' color='red' />
         <LoginAndRegisterInputBox width='100%' />
-        <LoginAndRegisterInputBoxName name="Create password'" />
+        <LoginAndRegisterInputBoxName name='Password' color='red' />
         <LoginAndRegisterInputBox width='100%' />
         <div
           style={{

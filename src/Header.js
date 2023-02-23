@@ -23,11 +23,11 @@ function Header({ text, shoppingBagItemsNumber, favorites, isLogin }) {
       >
         {text}
       </h1>
-      <div style={{ display: 'inline-block', width: '25%', fontSize: '0.8em' }}>
-        <Link to={isLogin ? '/yourprofile' : '/login'} className='linkStyles'>
+      <div style={{ display: 'inline-block', width: '25%', fontSize: '0.7em' }}>
+        <Link to={isLogin ? '/account' : '/login'} className='linkStyles'>
           <span style={{ padding: '7px' }}>
             <i className='bi bi-person'></i>{' '}
-            {isLogin ? 'Your profile' : 'Sign in'}
+            {isLogin ? 'My account' : 'Sign in'}
           </span>
         </Link>
         <Link to='/favorites' className='linkStyles'>

@@ -1,4 +1,4 @@
-import React, { Profiler } from 'react';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import productArray from './productArray';
@@ -8,7 +8,7 @@ import FavoritesBox from './FavoritesBox';
 import ShoppingBag from './ShoppingBag';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
-import ProfilePage from './ProfilePage';
+import AccountPage from './AccountPage';
 import RequestSignin from './RequestSignin';
 import {
   newArrivals,
@@ -247,9 +247,17 @@ function App() {
                 />
               }
             />
-            <Route path='/register' element={<RegisterPage />} />
+            <Route
+              path='/register'
+              element={<RegisterPage setIsLogin={setIsLogin} />}
+            />
             <Route path='/login' element={<LoginPage />} />
-            <Route path='/yourprofile' element={<ProfilePage />} />
+            <Route
+              path='/account'
+              element={
+                <AccountPage isLogin={isLogin} setIsLogin={setIsLogin} />
+              }
+            />
             <Route path='/requestSignin' element={<RequestSignin />} />
             <Route
               path='/New_Arrivals'

@@ -37,4 +37,15 @@ code {
   width: 27%;
 }
 
+.errorMessage {
+  margin: 0;
+  font-size: 0.6em;
+  color: red;
+}
+
+.errorMessage::before {
+  display: inline;
+  content: '⚠ ';
+}
+
 @import 'bootstrap-icons/font/bootstrap-icons.css';
