@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { isEmpty } from 'lodash';
 import CustomButton from './CustomButton';
 import FavoritesList from './FavoritesList';
 
 function FavoritesBox({
   products,
+  inFavoritesPage,
   toggleInFavorites,
   addToCart,
   checkIsInFavorites,
@@ -25,7 +27,9 @@ function FavoritesBox({
           <i className='bi bi-bag-heart'></i> Your Favorites ({products.length})
         </Link>
       </h4>
-
+      {inFavoritesPage && isEmpty(products) && (
+        <p style={{ textAlign: 'center' }}>Your shopping bag is empty.</p>
+      )}
       <FavoritesList
         products={products}
         addToCart={addToCart}

@@ -21,6 +21,7 @@ function MainPage({
   clearFavoritesBox,
   changeQuantityValue,
 }) {
+  const inMainPage = useLocation().pathname === '/';
   const inShoppingBagpage = useLocation().pathname === '/shoppingBag';
   const inFavoritesPage = useLocation().pathname === '/favorites';
   const inRegisterPage = useLocation().pathname === '/register';
@@ -65,12 +66,14 @@ function MainPage({
         }}
       >
         {!inShoppingBagpage &&
+          !inAccountPage &&
           !inRegisterPage &&
           !inLoginPage &&
           !inRequestSigninPage && (
             <ShoppingBag
               products={cart}
               shoppingBagItemsNumber={shoppingBagItemsNumber}
+              inShoppingBagpage={inShoppingBagpage}
               removeFromCart={removeFromCart}
               checkIsInFavorites={checkIsInFavorites}
               toggleInFavorites={toggleInFavorites}
@@ -82,11 +85,13 @@ function MainPage({
           )}
 
         {!inFavoritesPage &&
+          !inAccountPage &&
           !inRegisterPage &&
           !inLoginPage &&
           !inRequestSigninPage && (
             <FavoritesBox
               products={favorites}
+              inFavoritesPage={inFavoritesPage}
               toggleInFavorites={toggleInFavorites}
               addToCart={addToCart}
               checkIsInFavorites={checkIsInFavorites}

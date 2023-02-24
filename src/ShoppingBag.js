@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CustomButton from './CustomButton';
 import ShoppingBagList from './ShoppingBagList';
+import { isEmpty } from 'lodash';
 
 function ShoppingBag({
   products,
   shoppingBagItemsNumber,
+  inShoppingBagPage,
   removeFromCart,
   checkIsInFavorites,
   toggleInFavorites,
@@ -14,6 +16,9 @@ function ShoppingBag({
   buttonWidth,
   itemBoxWidth,
 }) {
+  const navigate = useNavigate();
+
+  console.log(products);
   return (
     <div
       style={{
@@ -28,6 +33,9 @@ function ShoppingBag({
           {shoppingBagItemsNumber})
         </Link>
       </h4>
+      {inShoppingBagPage && isEmpty(products) && (
+        <p style={{ textAlign: 'center' }}>Your shopping bag is empty.</p>
+      )}
       <ShoppingBagList
         products={products}
         removeFromCart={removeFromCart}
@@ -37,17 +45,16 @@ function ShoppingBag({
         itemBoxWidth={itemBoxWidth}
       />{' '}
       {products.length !== 0 && (
-        <Link to='/shoppingBag'>
-          <CustomButton
-            text='continue to checkout'
-            width={buttonWidth}
-            height='30px'
-            marginLeft='20px'
-            buttonBorder='1px solid black'
-            buttonColor='#faf9f8'
-            buttonTextColor='black'
-          />
-        </Link>
+        <CustomButton
+          text='continue to checkout'
+          clickHandler={() => navigate('/shoppingBag')}
+          width={buttonWidth}
+          height='30px'
+          marginLeft='20px'
+          buttonBorder='1px solid black'
+          buttonColor='#faf9f8'
+          buttonTextColor='black'
+        />
       )}
     </div>
   );
