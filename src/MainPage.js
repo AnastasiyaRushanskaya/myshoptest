@@ -1,18 +1,19 @@
+import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import NavigationList from './Navigationlist';
 import ShoppingBag from './ShoppingBag';
 import FavoritesBox from './FavoritesBox';
 import Footer from './Footer';
-import { Outlet, useLocation } from 'react-router-dom';
 import SignInBanner from './SignInBanner';
 import MainBanner from './MainBanner';
+import { useContext } from 'react';
+import Context from './Context';
 
 function MainPage({
   cart,
   searchValue,
   favorites,
   shoppingBagItemsNumber,
-  isLogin,
   startSearch,
   removeFromCart,
   toggleInFavorites,
@@ -21,6 +22,7 @@ function MainPage({
   clearFavoritesBox,
   changeQuantityValue,
 }) {
+  const value = useContext(Context);
   const inMainPage = useLocation().pathname === '/';
   const inShoppingBagpage = useLocation().pathname === '/shoppingBag';
   const inFavoritesPage = useLocation().pathname === '/favorites';
@@ -35,17 +37,16 @@ function MainPage({
         text='My Shop'
         shoppingBagItemsNumber={shoppingBagItemsNumber}
         favorites={favorites}
-        isLogin={isLogin}
       />
       <NavigationList startSearch={startSearch} searchValue={searchValue} />
       <div
+        className='d-inline-block'
         style={{
-          display: 'inline-block',
           width: '800px',
           verticalAlign: 'text-top',
         }}
       >
-        {!isLogin &&
+        {!value.isLogin &&
           !inRegisterPage &&
           !inLoginPage &&
           !inAccountPage &&
@@ -59,8 +60,8 @@ function MainPage({
         <Outlet />
       </div>
       <div
+        className='d-inline-block'
         style={{
-          display: 'inline-block',
           verticalAlign: 'text-top',
           marginLeft: '60px',
         }}

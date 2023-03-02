@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Context from './Context';
 import shopLogo from './images/shop_logo.png';
 
-function Header({ text, shoppingBagItemsNumber, favorites, isLogin }) {
+function Header({ text, shoppingBagItemsNumber, favorites }) {
+  const value = useContext(Context);
   return (
     <header style={{ marginTop: '15px', marginBottom: '15px' }}>
-      <div style={{ display: 'inline-block', width: '17%' }}>
+      <div className='d-inline-block' style={{ width: '17%' }}>
         <Link to='/'>
           <img
             src={shopLogo}
@@ -14,20 +16,21 @@ function Header({ text, shoppingBagItemsNumber, favorites, isLogin }) {
         </Link>
       </div>
       <h1
+        className='d-inline-block text-align-center no-margin'
         style={{
-          display: 'inline-block',
           width: '58%',
-          margin: '0px',
-          textAlign: 'center',
         }}
       >
         {text}
       </h1>
-      <div style={{ display: 'inline-block', width: '25%', fontSize: '0.7em' }}>
-        <Link to={isLogin ? '/account' : '/login'} className='linkStyles'>
+      <div
+        className='d-inline-block'
+        style={{ width: '25%', fontSize: '0.7em' }}
+      >
+        <Link to={value.isLogin ? '/account' : '/login'} className='linkStyles'>
           <span style={{ padding: '7px' }}>
             <i className='bi bi-person'></i>{' '}
-            {isLogin ? 'My account' : 'Sign in'}
+            {value.isLogin ? 'My account' : 'Sign in'}
           </span>
         </Link>
         <Link to='/favorites' className='linkStyles'>

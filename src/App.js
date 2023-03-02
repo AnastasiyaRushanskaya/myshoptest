@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Context from './Context';
 import productArray from './productArray';
 import ProductList from './ProductsList';
 import MainPage from './MainPage';
@@ -33,6 +34,11 @@ function App() {
   const [twoItemsInLine, setTwoItemsInLine] = useState(false);
   const [threeItemsInLine, setThreeItemsInLine] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
+
+  const value = {
+    isLogin,
+    setIsLogin,
+  };
 
   function changeQuantityValue(id, size, value) {
     const copy = cart.map((prod) => {
@@ -83,7 +89,6 @@ function App() {
     products.map((prod) => {
       if (prod.id === id) {
         setCart([...cart, { ...prod, size: size, quantity: 1 }]);
-        console.log(prod.quantity);
       }
     });
   }
@@ -118,7 +123,6 @@ function App() {
   }
 
   function removeFromCart(index) {
-    console.log(index);
     const copy = Object.assign([], cart);
     copy.splice(index, 1);
     setCart(copy);
@@ -143,7 +147,6 @@ function App() {
     if (!threeItemsInLine) {
       setThreeItemsInLine(true);
       setTwoItemsInLine(false);
-      console.log('ololo');
     }
   }
 
@@ -154,32 +157,14 @@ function App() {
     }
   }
   return (
-    <>
-      {' '}
+    <Context.Provider value={value}>
       {sizeErrorMessage && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '210px',
-            left: '550px',
-            zIndex: 99,
-            width: '200px',
-            height: '25px',
-            paddingTop: '4px',
-            borderRadius: '8px',
-            textAlign: 'center',
-            opacity: '0.75',
-            fontSize: '0.9em',
-            color: '#faf9f8',
-            backgroundColor: 'black',
-          }}
-        >
-          {' '}
+        <div className='text-align-center size-error-message'>
           <i className='bi bi-patch-exclamation'></i>
           {'  '}
           {sizeErrorMessage}
         </div>
-      )}{' '}
+      )}
       <BrowserRouter>
         <Routes>
           <Route
@@ -190,7 +175,6 @@ function App() {
                 searchValue={searchValue}
                 favorites={favorites}
                 shoppingBagItemsNumber={shoppingBagItemsNumber}
-                isLogin={isLogin}
                 startSearch={startSearch}
                 removeFromCart={removeFromCart}
                 toggleInFavorites={toggleInFavorites}
@@ -251,7 +235,10 @@ function App() {
               path='/register'
               element={<RegisterPage setIsLogin={setIsLogin} />}
             />
-            <Route path='/login' element={<LoginPage />} />
+            <Route
+              path='/login'
+              element={<LoginPage setIsLogin={setIsLogin} />}
+            />
             <Route
               path='/account'
               element={
@@ -412,7 +399,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </Context.Provider>
   );
 }
 

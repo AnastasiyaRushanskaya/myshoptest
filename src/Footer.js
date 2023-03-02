@@ -5,11 +5,11 @@ import shopLogo from './images/shop_logo.png';
 function Footer() {
   return (
     <div
+      className='text-align-center'
       style={{
         height: '160px',
         marginTop: '20px',
         backgroundColor: '#eae9e8',
-        textAlign: 'center',
       }}
     >
       <div style={{ padding: '15px' }}>

@@ -25,10 +25,8 @@ function ShoppingBagList({
   });
   return (
     <div
+      className='d-flex flex-wrap-w'
       style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        width: '100%',
         height: 'auto',
       }}
     >

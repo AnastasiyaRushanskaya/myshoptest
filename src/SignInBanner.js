@@ -5,20 +5,19 @@ import CustomButton from './CustomButton';
 function SignInBanner() {
   return (
     <div
+      className='text-align-center'
       style={{
         width: '100%',
         height: '120px',
         marginBottom: '10px',
         backgroundColor: '#f7efe7',
-        textAlign: 'center',
       }}
     >
       <p
+        className='no-margin font-weight-bold'
         style={{
-          margin: '0',
           padding: '5px',
           color: 'red',
-          fontWeight: 'bold',
           fontSize: '0.9em',
         }}
       >
@@ -27,7 +26,7 @@ function SignInBanner() {
         Join now, it's free.
       </p>
 
-      <p style={{ fontSize: '0.7em', margin: '0' }}>
+      <p className='no-margin' style={{ fontSize: '0.7em' }}>
         Members get free standard delivery and Click & Collect for orders over
         €20.
       </p>

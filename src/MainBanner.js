@@ -6,7 +6,6 @@ function MainBanner() {
   return (
     <div
       style={{
-        width: '100%',
         height: '250px',
         paddingTop: '25px',
         backgroundImage: `url(${banner})`,

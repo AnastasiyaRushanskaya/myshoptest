@@ -36,8 +36,8 @@ function ProductBox({
         paddingLeft: '20px',
       }}
     >
-      <p style={{ textAlign: 'center' }}>{name}</p>
-      <div style={{ display: 'flex' }}>
+      <p className='text-align-center'>{name}</p>
+      <div className='d-flex'>
         <div
           onMouseEnter={changeImage}
           onMouseLeave={changeImage}
@@ -47,11 +47,10 @@ function ProductBox({
         </div>
 
         <div
+          className='d-flex flex-wrap-w'
           style={{
-            display: 'flex',
             width: '50%',
             height: 'auto',
-            flexWrap: 'wrap',
             paddingLeft: '10px',
             paddingBottom: '6px',
           }}
@@ -66,13 +65,12 @@ function ProductBox({
             {cost}
           </span>
           <SizeOption selectSize={changeSizeHandler} size={size} />
-          <div
-            style={{ display: 'inline', width: '100%', alignSelf: 'flex-end' }}
-          >
+          <div style={{ display: 'inline', alignSelf: 'flex-end' }}>
             <AddToFavoritesIcon
               inFavorites={inFavorites}
               clickHandler={() => toggleInFavorites(id)}
-            />{' '}
+            />
+            {'  '}
             <CustomButton
               text='add'
               clickHandler={() => addToCart(id, size)}

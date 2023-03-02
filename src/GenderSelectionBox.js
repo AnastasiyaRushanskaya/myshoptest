@@ -12,7 +12,6 @@ function GenderSelectionBox({ value, changeHandler }) {
       value={value}
       onChange={(event) => changeHandler(event.target.value)}
       style={{
-        width: '100%',
         height: '40px',
         boxSizing: 'border-box',
         border: '0.3px solid grey',

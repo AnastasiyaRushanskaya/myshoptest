@@ -22,13 +22,13 @@ function FavoritesBox({
         height: 'auto',
       }}
     >
-      <h4 style={{ margin: '0px', textAlign: 'center' }}>
+      <h4 className='text-align-center no-margin'>
         <Link to='/favorites' className='linkStyles'>
           <i className='bi bi-bag-heart'></i> Your Favorites ({products.length})
         </Link>
       </h4>
       {inFavoritesPage && isEmpty(products) && (
-        <p style={{ textAlign: 'center' }}>Your shopping bag is empty.</p>
+        <p className='text-align-center'>Your shopping bag is empty.</p>
       )}
       <FavoritesList
         products={products}

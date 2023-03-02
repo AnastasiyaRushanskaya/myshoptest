@@ -23,17 +23,16 @@ function ShoppingBagProductBox({
         fontSize: '0.8em',
       }}
     >
-      <p style={{ textAlign: 'center' }}>{name}</p>
-      <div style={{ display: 'flex' }}>
+      <p className='text-align-center'>{name}</p>
+      <div className='d-flex'>
         <div style={{ width: '56%', height: '100%' }}>
           <ProductImage src={src} />
         </div>
         <div
+          className='d-flex flex-wrap-w'
           style={{
-            display: 'flex',
             width: '50%',
             height: 'auto',
-            flexWrap: 'wrap',
             paddingLeft: '20px',
             paddingBottom: '6px',
           }}
@@ -47,7 +46,7 @@ function ShoppingBagProductBox({
           >
             {cost}
           </span>
-          <div style={{ width: '100%' }}>Size: {size}</div>
+          <div>Size: {size}</div>
           <QuantityOption
             quantity={quantity}
             changeQuantityValue={(event) =>

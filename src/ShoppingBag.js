@@ -18,7 +18,6 @@ function ShoppingBag({
 }) {
   const navigate = useNavigate();
 
-  console.log(products);
   return (
     <div
       style={{
@@ -27,14 +26,14 @@ function ShoppingBag({
         minHeight: '250px',
       }}
     >
-      <h4 style={{ margin: '0px', textAlign: 'center' }}>
+      <h4 className='text-align-center no-margin'>
         <Link to='/shoppingBag' className='linkStyles'>
           <i className='bi bi-bag-check'></i> Shopping bag (
           {shoppingBagItemsNumber})
         </Link>
       </h4>
       {inShoppingBagPage && isEmpty(products) && (
-        <p style={{ textAlign: 'center' }}>Your shopping bag is empty.</p>
+        <p className='text-align-center'>Your shopping bag is empty.</p>
       )}
       <ShoppingBagList
         products={products}

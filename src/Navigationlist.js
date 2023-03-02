@@ -7,11 +7,11 @@ function NavigationList({ startSearch, searchValue }) {
   const items = menuList.map((item, index) => {
     return (
       <li
+        className='c-pointer'
         key={index}
         style={{
           paddingBottom: '30px',
           listStyleType: 'none',
-          cursor: 'pointer',
         }}
       >
         <Link
@@ -25,8 +25,8 @@ function NavigationList({ startSearch, searchValue }) {
   });
   return (
     <div
+      className='d-inline-block'
       style={{
-        display: 'inline-block',
         width: '260px',
         verticalAlign: 'text-top',
       }}

@@ -1,36 +1,40 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import CustomButton from './CustomButton';
 import LoginAndRegisterHeader from './LoginAndRegisterHeader';
 import LoginAndRegisterInputBoxName from './LoginAndRegisterInputBoxName';
 import TermsAndConditionsBox from './TermsAndConditionsBox';
+import { months } from './monthsArray';
+import Context from './Context';
 
-function RegisterPage({ setIsLogin }) {
+function getUsersData() {
+  if (localStorage.getItem('usersData')) {
+    return JSON.parse(localStorage.getItem('usersData'));
+  } else {
+    const users = {};
+    return users;
+  }
+}
+
+function saveUsersData(data) {
+  const users = getUsersData();
+  users[data.email] = data;
+  const json = JSON.stringify(users);
+  localStorage.setItem('usersData', json);
+}
+
+function RegisterPage() {
+  const value = useContext(Context);
   const [isVisibleTermsAndConditionsBox, setIsVisibleTermsAndConditionsBox] =
     useState(false);
   const [isVisibleAddMoreInfoBox, setIsVisibleAddMoreInfoBox] = useState(false);
-  const navigate = useNavigate();
   const [isPasswordHidden, setIsPasswordHidden] = useState('true');
+  const navigate = useNavigate();
 
   function togglePasswordVisibility() {
     setIsPasswordHidden(!isPasswordHidden);
   }
-
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
 
   const monthOptions = months.map((month, index) => {
     return <option key={index}>{month}</option>;
@@ -66,11 +70,10 @@ function RegisterPage({ setIsLogin }) {
     boxSizing: 'border-box',
     border: '0.3px solid grey',
   };
+
   function onSubmit(data) {
-    // localStorage.setItem(JSON.stringify(data.email), JSON.stringify(data));
-    localStorage.setItem('user', JSON.stringify(data));
-    console.log(Object.keys(localStorage));
-    setIsLogin(true);
+    saveUsersData(data);
+    value.setIsLogin(true);
     navigate('/account');
   }
   return (
@@ -132,13 +135,13 @@ vouchers.'
         />
 
         <span
+          className='c-pointer'
           style={{
+            position: 'relative',
             float: 'right',
             marginRight: '10px',
             marginTop: '-32px',
-            position: 'relative',
             zIndex: '2',
-            cursor: 'pointer',
           }}
           onClick={togglePasswordVisibility}
         >
@@ -146,7 +149,7 @@ vouchers.'
         </span>
         <div style={{ height: '15px' }}>
           {!errors.password && (
-            <p style={{ fontSize: '0.6em', margin: '0' }}>
+            <p className='no-margin' style={{ fontSize: '0.6em' }}>
               It must be at least 6 characters long, including 1 uppercase, 1
               lowercase, 1 number
             </p>
@@ -157,13 +160,7 @@ vouchers.'
         </div>
 
         <LoginAndRegisterInputBoxName name='Date of Birth' color='red' />
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-          }}
-        >
+        <div className='d-flex flex-wrap-w justify-content-spacw-between'>
           <div style={{ width: '30%' }}>
             <input
               name='dayOfBirth'
@@ -227,19 +224,18 @@ vouchers.'
                 experience.
               </p>
             ) : (
-              <p style={{ fontSize: '0.6em', margin: '0' }}>
+              <p className='no-margin' style={{ fontSize: '0.6em' }}>
                 H&M wants to give you a special treat on your birthday
               </p>
             )}
           </div>
         </div>
         <div
+          className='c-pointer text-align-center'
           style={{
             width: '100%',
             height: '40px',
-            textAlign: 'center',
             backgroundColor: 'white',
-            cursor: 'pointer',
           }}
           onClick={showAddInfoBox}
         >
@@ -279,7 +275,7 @@ vouchers.'
             <select name='gender' style={inputStyle} {...register('gender')}>
               {genderOptions}
             </select>
-            <LoginAndRegisterInputBoxName name='Postecode' color='white' />
+            <LoginAndRegisterInputBoxName name='Postcode' color='white' />
             <input
               name='postcode'
               {...register('postcode')}
@@ -332,10 +328,9 @@ vouchers.'
 
         <Link to='/login' className='linkStyles'>
           <p
+            className='text-align-center font-weight-bold'
             style={{
               fontSize: '0.7em',
-              fontWeight: 'bold',
-              textAlign: 'center',
               textDecoration: 'underline',
             }}
           >
@@ -348,3 +343,4 @@ vouchers.'
 }
 
 export default RegisterPage;
+export { getUsersData };

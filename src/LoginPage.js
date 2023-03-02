@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import CustomButton from './CustomButton';
 import LoginAndRegisterHeader from './LoginAndRegisterHeader';
 import LoginAndRegisterCheckbox from './LoginAndRegisterCheckbox';
 import LoginAndRegisterInputBoxName from './LoginAndRegisterInputBoxName';
+import { getUsersData } from './RegisterPage';
+import Context from './Context';
 
 function LoginPage() {
+  const value = useContext(Context);
   const navigate = useNavigate();
   const [isLoginPasswordHidden, setIsLoginPasswordHidden] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const {
     register,
     handleSubmit,
@@ -26,9 +30,25 @@ function LoginPage() {
   function togglePasswordVisibility() {
     setIsLoginPasswordHidden(!isLoginPasswordHidden);
   }
+
   function onSubmit(data) {
-    console.log(data);
+    setErrorMessage('');
+    const usersData = getUsersData();
+    const { email, password } = data;
+
+    if (!usersData[email]) {
+      setErrorMessage('This email does not exist');
+      return;
+    }
+    if (usersData[email].password !== password) {
+      setErrorMessage('incorrect password');
+      return;
+    }
+    navigate('/account');
+    console.log(localStorage);
+    value.setIsLogin(true);
   }
+
   return (
     <div>
       <LoginAndRegisterHeader
@@ -50,7 +70,13 @@ vouchers.'
             {...register('email', {
               required: { value: true, message: 'This field is required' },
             })}
-            style={{ ...inputStyle, borderColor: errors.email && 'red' }}
+            style={{
+              ...inputStyle,
+              borderColor:
+                (errors.email ||
+                  errorMessage === 'This email does not exist') &&
+                'red',
+            }}
           />
           <div style={{ height: '15px' }}>
             {errors.email && (
@@ -66,22 +92,27 @@ vouchers.'
             {...register('password', {
               required: true,
             })}
-            style={{ ...inputStyle, borderColor: errors.password && 'red' }}
+            style={{
+              ...inputStyle,
+              borderColor:
+                (errors.password || errorMessage === 'incorrect password') &&
+                'red',
+            }}
           />
 
           <span
+            className='c-pointer'
             style={{
               float: 'right',
               marginRight: '10px',
               marginTop: '-32px',
               position: 'relative',
               zIndex: '2',
-              cursor: 'pointer',
             }}
             onClick={togglePasswordVisibility}
           >
             <i
-              className={isLoginPasswordHidden ? 'bi bi-eye' : 'bi bi-eye-fill'}
+              className={isLoginPasswordHidden ? 'bi bi-eye-fill' : 'bi bi-eye'}
             ></i>
           </span>
           {errors.password && (
@@ -89,13 +120,7 @@ vouchers.'
               <p className={'errorMessage'}>This field is required</p>
             </div>
           )}
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              justifyContent: 'space-between',
-            }}
-          >
+          <div className='d-flex justify-content-spacw-between'>
             <LoginAndRegisterCheckbox text='Remember me' />
             <Link to='/requestSignin' className='linkStyles'>
               <p
@@ -107,7 +132,12 @@ vouchers.'
               </p>
             </Link>
           </div>
-
+          <p
+            className={errorMessage ? 'errorMessage' : ''}
+            style={{ margin: '0', color: 'red', fontSize: '0.8em' }}
+          >
+            {errorMessage}
+          </p>
           <CustomButton
             text='Sign in'
             width='100%'

@@ -14,7 +14,7 @@ function DateOfBirthBox({
   return (
     <>
       <LoginAndRegisterInputBoxName name='Date of Birth' />
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div className='d-flex justify-content-spacw-between'>
         <LoginAndRegisterInputBox
           value={dayOfBirthValue}
           changeHandler={setDayOfBiirthValue}

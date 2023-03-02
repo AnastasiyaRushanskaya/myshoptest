@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import discount from './images/discount.jpeg';
-import beautybar from './images/beautybar.jpeg';
-import hogwarts from './images/hogwarts.jpeg';
-import { difference } from 'lodash';
 
-function Slider() {
-  const [items, setItems] = useState([discount, beautybar, hogwarts]);
-  const [slide, setSlide] = useState(0);
-  const [touchPosition, setTouchPosition] = useState(null);
+function Slider({ sliderItems, ...rest }) {
+  const [active, setActive] = useState(0);
+  let scrollInterval = null;
 
-  const changeSlide = (direction = 1) => {
-    let slideNumber = 0;
+  React.useEffect(() => {
+    scrollInterval = setTimeout(() => {
+      setActive((active + 1) % sliderItems.length);
+    }, 4000);
+    return () => clearTimeout(scrollInterval);
+  });
 
-    if (slide + direction < 0) {
-      slideNumber = items.length - 1;
-    } else {
-      slideNumber = (slide + direction) % items.length;
-    }
-
-    setSlide(slideNumber);
-  };
+  return (
+    <div className='slider'>
+      {sliderItems.map((item, index) => {
+        const activeClass = active === index ? 'visible' : '';
+        return React.cloneElement(item, {
+          ...rest,
+          className: `slider-item${activeClass}`,
+        });
+      })}
+    </div>
+  );
 }
+
+export default Slider;

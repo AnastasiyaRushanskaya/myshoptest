@@ -39,16 +39,7 @@ function ProductList({
         changeSizeToBig={changeSizeToBig}
         changeSizeToSmall={changeSizeToSmall}
       />
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          width: '100%',
-          height: 'auto',
-        }}
-      >
-        {items}
-      </div>
+      <div className='d-flex flex-wrap-w'>{items}</div>
     </>
   );
 }

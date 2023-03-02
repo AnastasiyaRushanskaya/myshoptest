@@ -8,12 +8,12 @@ function TermsAndConditionsBox() {
         zIndex: 99,
         top: 0,
         left: 0,
-        width: '100%',
         height: 'fit-content',
         backgroundColor: '#413f3e',
       }}
     >
       <div
+        className='text-align-center'
         style={{
           position: 'relative',
           width: '40%',
@@ -21,19 +21,17 @@ function TermsAndConditionsBox() {
           margin: '0 auto',
           padding: '20px',
           backgroundColor: '#faf9f8',
-          textAlign: 'center',
           cursor: 'default',
         }}
       >
         <i
-          className='bi bi-x'
+          className='bi bi-x c-pointer'
           style={{
             position: 'absolute',
             top: '0',
             right: '10px',
             fontSize: '4em',
             color: 'grey',
-            cursor: 'pointer',
           }}
         ></i>
         <h1>H&M Membership terms & conditions</h1> <h3>Introduction</h3>

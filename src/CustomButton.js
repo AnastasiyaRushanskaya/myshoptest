@@ -13,18 +13,18 @@ function CustomButton({
 }) {
   return (
     <button
+      className='d-inline-block'
       onClick={clickHandler}
       style={{
-        display: 'inline-block',
         width: width,
         height: height,
         marginTop: '15px',
         marginLeft: marginLeft,
         border: buttonBorder,
         borderRadius: '3px',
-        cursor: 'pointer',
         backgroundColor: buttonColor,
         color: buttonTextColor,
+        cursor: 'pointer',
       }}
     >
       <i className={iconName}></i> {text}

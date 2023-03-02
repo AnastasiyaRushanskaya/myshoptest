@@ -13,30 +13,26 @@ function ProductsListHeader({
 
   return (
     <div
+      className='d-flex align-items-center justify-content-spacw-between '
       style={{
-        display: 'flex',
-        width: '100%',
         height: 'auto',
         marginTop: '5px',
-        justifyContent: 'space-between',
-        alignItems: 'center',
       }}
     >
       <div
+        className='font-weight-bold'
         style={{
           width: '30%',
           fontSize: '0.7em',
-          fontWeight: 'bold',
         }}
       >
         {itemsCategory || 'All products'}
       </div>
       <div
+        className='text-align-center font-weight-bold'
         style={{
           width: '30%',
-          textAlign: 'center',
           fontSize: '0.7em',
-          fontWeight: 'bold',
         }}
       >
         {products.length} items
@@ -48,10 +44,9 @@ function ProductsListHeader({
         }}
       >
         <div
+          className='d-inline-block c-pointer'
           style={{
-            display: 'inline-block',
             paddingLeft: '10px',
-            cursor: 'pointer',
           }}
           onClick={changeSizeToBig}
         >
@@ -65,10 +60,9 @@ function ProductsListHeader({
           ></i>
         </div>
         <div
+          className='d-inline-block c-pointer'
           style={{
-            display: 'inline-block',
             paddingLeft: '10px',
-            cursor: 'pointer',
           }}
           onClick={changeSizeToSmall}
         >

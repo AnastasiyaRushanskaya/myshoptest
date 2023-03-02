@@ -2,7 +2,7 @@ import React from 'react';
 
 function AddToFavoritesIcon({ inFavorites, clickHandler }) {
   return (
-    <i
+    <i 
       onClick={clickHandler}
       className={inFavorites ? 'bi bi-heart-fill' : 'bi bi-heart'}
       style={{

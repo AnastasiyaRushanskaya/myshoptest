@@ -48,4 +48,74 @@ code {
   content: '⚠ ';
 }
 
+.slider {
+  position: relative;
+}
+
+.slider-item {
+  position: absolute;
+  visibility: hidden;
+  background: #fcf2df;
+  width: 200px;
+  height: 100px;
+  font-size: 26px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.slider-item.visible {
+  visibility: visible;
+}
+
+.c-poiner {
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.flex-wrap-w {
+  flex-wrap: wrap;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.justify-content-spacw-between {
+  justify-content: space-between;
+}
+
+.size-error-message {
+  position: fixed;
+  top: 210px;
+  left: 550px;
+  z-index: 99;
+  width: 200px;
+  height: 25px;
+  padding-top: '4px';
+  border-radius: '8px';
+  opacity: '0.75';
+  font-size: '0.9em';
+  color: '#faf9f8';
+  background-color: 'black';
+}
+
 @import 'bootstrap-icons/font/bootstrap-icons.css';

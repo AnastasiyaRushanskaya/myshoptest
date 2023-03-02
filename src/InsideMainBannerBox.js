@@ -14,8 +14,8 @@ function InsideMAinBannerBox({ text, address }) {
       }}
     >
       <p
+        className='no-margin'
         style={{
-          margin: '0',
           color: 'black',
         }}
       >
@@ -24,8 +24,8 @@ function InsideMAinBannerBox({ text, address }) {
 
       <Link to={address}>
         <i
-          className='bi bi-arrow-right'
-          style={{ fontSize: '1.2em', color: 'black', fontWeight: 'bold' }}
+          className='bi bi-arrow-right font-weight-bold'
+          style={{ fontSize: '1.2em', color: 'black' }}
         ></i>
       </Link>
     </div>
