@@ -105,8 +105,8 @@ code {
 
 .size-error-message {
   position: fixed;
-  top: 210px;
-  left: 550px;
+  /* top: 210px; */
+  /* left: 550px; */
   z-index: 99;
   width: 200px;
   height: 25px;

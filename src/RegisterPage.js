@@ -26,6 +26,7 @@ function saveUsersData(data) {
 
 function RegisterPage() {
   const value = useContext(Context);
+  // const [termsAndConditionsShow, settermsAndConditionsShow] = useState(false)
   const [isVisibleTermsAndConditionsBox, setIsVisibleTermsAndConditionsBox] =
     useState(false);
   const [isVisibleAddMoreInfoBox, setIsVisibleAddMoreInfoBox] = useState(false);
