@@ -70,10 +70,9 @@ function ProductBox({
               inFavorites={inFavorites}
               clickHandler={() => toggleInFavorites(id)}
             />
-            {'  '}
             <CustomButton
               text='add'
-              clickHandler={() => addToCart(id, size)}
+              clickHandler={(event) => addToCart(event, id, size)}
               iconName='bi bi-bag'
               width='80px'
               height='20px'

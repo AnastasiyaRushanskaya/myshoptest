@@ -34,6 +34,20 @@ function App() {
   const [twoItemsInLine, setTwoItemsInLine] = useState(false);
   const [threeItemsInLine, setThreeItemsInLine] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
+  const [pos, setPos] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  // const mouseMoveHandler = (event) => {
+  //   setPos({ x: event.clientX, y: event.clientY });
+  //   console.log(pos);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('mousemove', mouseMoveHandler);
+  //   return () => window.removeEventListener('mousemove', mouseMoveHandler);
+  // }, [pos]);
 
   const value = {
     isLogin,
@@ -75,8 +89,10 @@ function App() {
     return true;
   }
 
-  function addToCart(id, size) {
+  function addToCart(event, id, size) {
     if (size === '') {
+      setPos({ x: event.clientX, y: event.clientY });
+
       setSizeErrorMessage('Please select size');
       return;
     }
@@ -159,7 +175,23 @@ function App() {
   return (
     <Context.Provider value={value}>
       {sizeErrorMessage && (
-        <div className='text-align-center size-error-message'>
+        <div
+          className='size-error-message text-align-center'
+          style={{
+            position: 'fixed',
+            zIndex: '99',
+            top: pos.y + 20,
+            left: pos.x - 100,
+            width: '200px',
+            height: '25px',
+            paddingTop: '4px',
+            borderRadius: '8px',
+            opacity: '0.75',
+            fontSize: '0.9em',
+            color: '#faf9f8',
+            backgroundColor: 'black',
+          }}
+        >
           <i className='bi bi-patch-exclamation'></i>
           {'  '}
           {sizeErrorMessage}
