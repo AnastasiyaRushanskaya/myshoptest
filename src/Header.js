@@ -2,31 +2,21 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Context from './Context';
 import shopLogo from './images/shop_logo.png';
+import { Col, Row } from 'react-bootstrap';
 
 function Header({ text, shoppingBagItemsNumber, favorites }) {
   const value = useContext(Context);
   return (
-    <header style={{ marginTop: '15px', marginBottom: '15px' }}>
-      <div className='d-inline-block' style={{ width: '17%' }}>
+    <Row as='header' className='my-3'>
+      <Col xs={2}>
         <Link to='/'>
-          <img
-            src={shopLogo}
-            style={{ width: 'auto', height: '40px', marginLeft: '30px' }}
-          ></img>
+          <img src={shopLogo} style={{ width: 'auto', height: '40px' }}></img>
         </Link>
-      </div>
-      <h1
-        className='d-inline-block text-align-center no-margin'
-        style={{
-          width: '58%',
-        }}
-      >
+      </Col>
+      <Col as='h1' xs={2} md={6} className='text-center'>
         {text}
-      </h1>
-      <div
-        className='d-inline-block'
-        style={{ width: '25%', fontSize: '0.7em' }}
-      >
+      </Col>
+      <Col xs={8} md={4}>
         <Link to={value.isLogin ? '/account' : '/login'} className='linkStyles'>
           <span style={{ padding: '7px' }}>
             <i className='bi bi-person'></i>{' '}
@@ -44,8 +34,8 @@ function Header({ text, shoppingBagItemsNumber, favorites }) {
             )
           </span>
         </Link>
-      </div>
-    </header>
+      </Col>
+    </Row>
   );
 }
 

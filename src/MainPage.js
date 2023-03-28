@@ -32,12 +32,7 @@ function MainPage({
   const inRequestSigninPage = useLocation().pathname === '/requestSignin';
 
   return (
-    <div>
-      <Header
-        text='My Shop'
-        shoppingBagItemsNumber={shoppingBagItemsNumber}
-        favorites={favorites}
-      />
+    <>
       <NavigationList startSearch={startSearch} searchValue={searchValue} />
       <div
         className='d-inline-block'
@@ -104,7 +99,7 @@ function MainPage({
           )}
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -1,38 +1,32 @@
 import React from 'react';
 import menuList from './menuList';
 import SearchBox from './SearchBox';
-import { Link } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
 function NavigationList({ startSearch, searchValue }) {
   const items = menuList.map((item, index) => {
     return (
-      <li
-        className='c-pointer'
+      <Nav.Link
         key={index}
-        style={{
-          paddingBottom: '30px',
-          listStyleType: 'none',
-        }}
+        href={item === 'All products' ? '/' : `/${item.split(' ').join('_')}`}
+        className='linkStyles'
       >
-        <Link
-          to={item === 'All products' ? '/' : `/${item.split(' ').join('_')}`}
-          className='linkStyles'
-        >
-          {item}
-        </Link>
-      </li>
+        {item}
+      </Nav.Link>
     );
   });
   return (
     <div
-      className='d-inline-block'
+      className='d-inline-block mx-3'
       style={{
         width: '260px',
         verticalAlign: 'text-top',
       }}
     >
       <SearchBox startSearch={startSearch} searchValue={searchValue} />
-      <ul>{items}</ul>
+      <Nav defaultActiveKey='/#' className='flex-column'>
+        {items}
+      </Nav>
     </div>
   );
 }

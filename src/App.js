@@ -23,6 +23,8 @@ import {
   shoes,
   accessories,
 } from './categoryTypes';
+import { Container, Toast } from 'react-bootstrap';
+import Header from './Header';
 
 function App() {
   const products = productArray;
@@ -34,6 +36,8 @@ function App() {
   const [twoItemsInLine, setTwoItemsInLine] = useState(false);
   const [threeItemsInLine, setThreeItemsInLine] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
+  const [addedItemName, setAddedItemName] = useState(null);
+  const [showAddedToCartToast, setShowAddedToCartToast] = useState(false);
   const [pos, setPos] = useState({
     x: 0,
     y: 0,
@@ -105,8 +109,11 @@ function App() {
     products.map((prod) => {
       if (prod.id === id) {
         setCart([...cart, { ...prod, size: size, quantity: 1 }]);
+        setAddedItemName(prod.name);
       }
     });
+
+    setShowAddedToCartToast(true);
   }
 
   const shoppingBagItemsNumber = calculateShoppingBagItemsNumber();
@@ -174,263 +181,272 @@ function App() {
   }
   return (
     <Context.Provider value={value}>
-      {sizeErrorMessage && (
-        <div
-          className='size-error-message text-align-center'
-          style={{
-            position: 'fixed',
-            zIndex: '99',
-            top: pos.y + 20,
-            left: pos.x - 100,
-            width: '200px',
-            height: '25px',
-            paddingTop: '4px',
-            borderRadius: '8px',
-            opacity: '0.75',
-            fontSize: '0.9em',
-            color: '#faf9f8',
-            backgroundColor: 'black',
-          }}
-        >
-          <i className='bi bi-patch-exclamation'></i>
-          {'  '}
-          {sizeErrorMessage}
-        </div>
-      )}
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <MainPage
-                cart={cart}
-                searchValue={searchValue}
-                favorites={favorites}
-                shoppingBagItemsNumber={shoppingBagItemsNumber}
-                startSearch={startSearch}
-                removeFromCart={removeFromCart}
-                toggleInFavorites={toggleInFavorites}
-                checkIsInFavorites={checkIsInFavorites}
-                addToCart={addToCart}
-                clearFavoritesBox={clearFavoritesBox}
-                changeQuantityValue={changeQuantityValue}
-              />
-            }
+      <Container>
+        {addedItemName && (
+          <Toast>
+            {' '}
+            <Toast.Header>
+              <i className='bi bi-bag-check'> </i> <strong>Shopping Bag</strong>
+            </Toast.Header>
+            <Toast.Body>
+              <strong>{addedItemName} </strong>added to your shopping bag
+            </Toast.Body>
+          </Toast>
+        )}
+        {sizeErrorMessage && (
+          <div
+            className='size-error-message text-align-center'
+            style={{
+              top: pos.y + 20,
+              left: pos.x - 30,
+            }}
           >
+            <i className='bi bi-patch-exclamation'></i>
+            {'  '}
+            {sizeErrorMessage}
+          </div>
+        )}
+
+        <BrowserRouter>
+          <Header
+            text='My Shop'
+            shoppingBagItemsNumber={shoppingBagItemsNumber}
+            favorites={favorites}
+          />
+          <Routes>
             <Route
-              index
+              path='/'
               element={
-                <ProductList
-                  products={searchValue ? searchResults : products}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/shoppingBag'
-              element={
-                <ShoppingBag
-                  products={cart}
+                <MainPage
+                  cart={cart}
+                  searchValue={searchValue}
+                  favorites={favorites}
                   shoppingBagItemsNumber={shoppingBagItemsNumber}
+                  startSearch={startSearch}
                   removeFromCart={removeFromCart}
+                  toggleInFavorites={toggleInFavorites}
                   checkIsInFavorites={checkIsInFavorites}
-                  toggleInFavorites={toggleInFavorites}
-                  changeQuantityValue={changeQuantityValue}
-                  width='800px'
-                  buttonWidth='220px'
-                  itemBoxWidth='27%'
-                />
-              }
-            />
-            <Route
-              path='/favorites'
-              element={
-                <FavoritesBox
-                  products={favorites}
-                  toggleInFavorites={toggleInFavorites}
                   addToCart={addToCart}
-                  checkIsInFavorites={checkIsInFavorites}
                   clearFavoritesBox={clearFavoritesBox}
-                  width='800px'
-                  buttonWidth='220px'
-                  itemBoxWidth='27%'
+                  changeQuantityValue={changeQuantityValue}
                 />
               }
-            />
-            <Route
-              path='/register'
-              element={<RegisterPage setIsLogin={setIsLogin} />}
-            />
-            <Route
-              path='/login'
-              element={<LoginPage setIsLogin={setIsLogin} />}
-            />
-            <Route
-              path='/account'
-              element={
-                <AccountPage isLogin={isLogin} setIsLogin={setIsLogin} />
-              }
-            />
-            <Route path='/requestSignin' element={<RequestSignin />} />
-            <Route
-              path='/New_Arrivals'
-              element={
-                <ProductList
-                  products={newArrivals}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/Trending_now'
-              element={
-                <ProductList
-                  products={trendingnow}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/BestSellers'
-              element={
-                <ProductList
-                  products={bestSellers}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/Dresses'
-              element={
-                <ProductList
-                  products={dresses}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/Skirts'
-              element={
-                <ProductList
-                  products={skirts}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/T-Shirts'
-              element={
-                <ProductList
-                  products={tShirts}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/Blazers'
-              element={
-                <ProductList
-                  products={blazers}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/Coats'
-              element={
-                <ProductList
-                  products={coats}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/Shoes'
-              element={
-                <ProductList
-                  products={shoes}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-            <Route
-              path='/Accessories'
-              element={
-                <ProductList
-                  products={accessories}
-                  twoItemsInLine={twoItemsInLine}
-                  threeItemsInLine={threeItemsInLine}
-                  addToCart={addToCart}
-                  toggleInFavorites={toggleInFavorites}
-                  checkIsInFavorites={checkIsInFavorites}
-                  changeSizeToBig={changeSizeToBig}
-                  changeSizeToSmall={changeSizeToSmall}
-                />
-              }
-            />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+            >
+              <Route
+                index
+                element={
+                  <ProductList
+                    products={searchValue ? searchResults : products}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/shoppingBag'
+                element={
+                  <ShoppingBag
+                    products={cart}
+                    shoppingBagItemsNumber={shoppingBagItemsNumber}
+                    removeFromCart={removeFromCart}
+                    checkIsInFavorites={checkIsInFavorites}
+                    toggleInFavorites={toggleInFavorites}
+                    changeQuantityValue={changeQuantityValue}
+                    width='800px'
+                    buttonWidth='220px'
+                    itemBoxWidth='27%'
+                  />
+                }
+              />
+              <Route
+                path='/favorites'
+                element={
+                  <FavoritesBox
+                    products={favorites}
+                    toggleInFavorites={toggleInFavorites}
+                    addToCart={addToCart}
+                    checkIsInFavorites={checkIsInFavorites}
+                    clearFavoritesBox={clearFavoritesBox}
+                    width='800px'
+                    buttonWidth='220px'
+                    itemBoxWidth='27%'
+                  />
+                }
+              />
+              <Route
+                path='/register'
+                element={<RegisterPage setIsLogin={setIsLogin} />}
+              />
+              <Route
+                path='/login'
+                element={<LoginPage setIsLogin={setIsLogin} />}
+              />
+              <Route
+                path='/account'
+                element={
+                  <AccountPage isLogin={isLogin} setIsLogin={setIsLogin} />
+                }
+              />
+              <Route path='/requestSignin' element={<RequestSignin />} />
+              <Route
+                path='/New_Arrivals'
+                element={
+                  <ProductList
+                    products={newArrivals}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/Trending_now'
+                element={
+                  <ProductList
+                    products={trendingnow}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/BestSellers'
+                element={
+                  <ProductList
+                    products={bestSellers}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/Dresses'
+                element={
+                  <ProductList
+                    products={dresses}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/Skirts'
+                element={
+                  <ProductList
+                    products={skirts}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/T-Shirts'
+                element={
+                  <ProductList
+                    products={tShirts}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/Blazers'
+                element={
+                  <ProductList
+                    products={blazers}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/Coats'
+                element={
+                  <ProductList
+                    products={coats}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/Shoes'
+                element={
+                  <ProductList
+                    products={shoes}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+              <Route
+                path='/Accessories'
+                element={
+                  <ProductList
+                    products={accessories}
+                    twoItemsInLine={twoItemsInLine}
+                    threeItemsInLine={threeItemsInLine}
+                    addToCart={addToCart}
+                    toggleInFavorites={toggleInFavorites}
+                    checkIsInFavorites={checkIsInFavorites}
+                    changeSizeToBig={changeSizeToBig}
+                    changeSizeToSmall={changeSizeToSmall}
+                  />
+                }
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Container>
     </Context.Provider>
   );
 }
