@@ -28,21 +28,23 @@ function MainPage({
   const inRegisterPage = useLocation().pathname === '/register';
   const inLoginPage = useLocation().pathname === '/login';
   const inAccountPage = useLocation().pathname === '/account';
-  const inRequestSigninPage = useLocation().pathname === '/requestSignin';
+  const inForgotPasswordPage = useLocation().pathname === '/requestSignin';
 
   return (
     <Row>
-      <NavigationList startSearch={startSearch} searchValue={searchValue} />
+      <Col xs className='d-md-flex d-none'>
+        <NavigationList startSearch={startSearch} searchValue={searchValue} />
+      </Col>
       <Col md={7}>
         {!value.isLogin &&
           !inRegisterPage &&
           !inLoginPage &&
           !inAccountPage &&
-          !inRequestSigninPage && <SignInBanner />}
+          !inForgotPasswordPage && <SignInBanner />}
         {!inRegisterPage &&
           !inLoginPage &&
           !inAccountPage &&
-          !inRequestSigninPage &&
+          !inForgotPasswordPage &&
           !inFavoritesPage &&
           !inShoppingBagpage && <NavigationBanner />}
         <Outlet />
@@ -52,7 +54,7 @@ function MainPage({
           !inAccountPage &&
           !inRegisterPage &&
           !inLoginPage &&
-          !inRequestSigninPage && (
+          !inForgotPasswordPage && (
             <ShoppingBag
               products={cart}
               shoppingBagItemsNumber={shoppingBagItemsNumber}
@@ -71,7 +73,7 @@ function MainPage({
           !inAccountPage &&
           !inRegisterPage &&
           !inLoginPage &&
-          !inRequestSigninPage && (
+          !inForgotPasswordPage && (
             <FavoritesBox
               products={favorites}
               inFavoritesPage={inFavoritesPage}

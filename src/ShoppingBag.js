@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import CustomButton from './CustomButton';
 import ShoppingBagList from './ShoppingBagList';
 import { isEmpty } from 'lodash';
+import { Row, Col } from 'react-bootstrap';
 
 function ShoppingBag({
   products,
@@ -40,11 +41,16 @@ function ShoppingBag({
         changeQuantityValue={changeQuantityValue}
       />{' '}
       {products.length !== 0 && (
-        <CustomButton
-          text='continue to checkout'
-          clickHandler={() => navigate('/shoppingBag')}
-          variant='outline-dark'
-        />
+        <Row className='my-3 justify-content-center'>
+          <Col xs={7}>
+            <CustomButton
+              text='continue to checkout'
+              clickHandler={() => navigate('/shoppingBag')}
+              variant='outline-dark'
+              width='100%'
+            />
+          </Col>
+        </Row>
       )}
     </div>
   );

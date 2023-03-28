@@ -317,14 +317,7 @@ vouchers.'
           </a>
         </p>
 
-        <CustomButton
-          text='Become a member'
-          width='100%'
-          height='40px'
-          buttonBorder='none'
-          buttonColor='black'
-          buttonTextColor='#faf9f8'
-        />
+        <CustomButton text='Become a member' variant='dark' width='100%' />
 
         <Link to='/login' className='linkStyles'>
           <p

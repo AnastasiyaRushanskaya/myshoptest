@@ -10,7 +10,8 @@ import ShoppingBag from './ShoppingBag';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
 import AccountPage from './AccountPage';
-import RequestSignin from './RequestSignin';
+import ForgotPasswordPage from './ForgotPasswordPage';
+import Example from './Example';
 import {
   newArrivals,
   trendingnow,
@@ -183,6 +184,7 @@ function App() {
   return (
     <Context.Provider value={value}>
       <Container fluid>
+        <Example />
         {/* {addedItemName && (
           <Toast>
             {' '}
@@ -292,7 +294,7 @@ function App() {
                   <AccountPage isLogin={isLogin} setIsLogin={setIsLogin} />
                 }
               />
-              <Route path='/requestSignin' element={<RequestSignin />} />
+              <Route path='/requestSignin' element={<ForgotPasswordPage />} />
               <Route
                 path='/New_Arrivals'
                 element={

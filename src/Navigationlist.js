@@ -17,7 +17,7 @@ function NavigationList({ startSearch, searchValue }) {
   });
 
   return (
-    <Col md={2}>
+    <Col>
       <SearchBox startSearch={startSearch} searchValue={searchValue} />
       <Nav defaultActiveKey='/#' className='flex-column'>
         {items}

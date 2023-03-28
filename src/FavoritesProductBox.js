@@ -46,11 +46,7 @@ function FavoritesProductBox({
               text='add'
               clickHandler={() => addToCart(id, size)}
               iconName='bi bi-bag'
-              width='70px'
-              height='20px'
-              buttonBorder='none'
-              buttonColor='black'
-              buttonTextColor='#faf9f8'
+              variant='dark'
             />
           </Col>
         </Col>

@@ -138,24 +138,14 @@ vouchers.'
           >
             {errorMessage}
           </p>
-          <CustomButton
-            text='Sign in'
-            width='100%'
-            height='40px'
-            buttonBorder='none'
-            buttonColor='black'
-            buttonTextColor='#faf9f8'
-          />
+          <CustomButton text='Sign in' width='100%' variant='dark' />
         </form>
 
         <CustomButton
           text='Become a member'
           clickHandler={() => navigate('/register')}
+          variant='outline-dark'
           width='100%'
-          height='40px'
-          buttonBorder='1px solid black'
-          buttonColor='#faf9f8'
-          buttonTextColor='black'
         />
       </div>
     </div>

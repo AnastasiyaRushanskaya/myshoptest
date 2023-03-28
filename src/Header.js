@@ -6,7 +6,7 @@ import shopLogo from './images/shop_logo.png';
 function Header({ shoppingBagItemsNumber, favorites }) {
   const value = useContext(Context);
   return (
-    <Row as='header' className='my-3'>
+    <Row as='header' className='my-3 d-md-flex d-none'>
       <Col xs={1} md={2}>
         <Nav.Link href='/' className='linkstyles'>
           <Image
