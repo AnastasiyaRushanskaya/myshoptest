@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductBox from './ProductBox';
 import ProductsListHeader from './ProductListHeader';
+import { Row } from 'react-bootstrap';
 
 function ProductList({
   products,
@@ -39,7 +40,9 @@ function ProductList({
         changeSizeToBig={changeSizeToBig}
         changeSizeToSmall={changeSizeToSmall}
       />
-      <div className='d-flex flex-wrap-w'>{items}</div>
+      <Row xs={1} md={twoItemsInLine ? 2 : 3}>
+        {items}
+      </Row>
     </>
   );
 }

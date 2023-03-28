@@ -1,34 +1,11 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
-function CustomButton({
-  text,
-  clickHandler,
-  iconName,
-  width,
-  height,
-  marginLeft,
-  buttonBorder,
-  buttonColor,
-  buttonTextColor,
-}) {
+function CustomButton({ text, clickHandler, iconName, variant }) {
   return (
-    <button
-      className='d-inline-block'
-      onClick={clickHandler}
-      style={{
-        width: width,
-        height: height,
-        marginTop: '15px',
-        marginLeft: marginLeft,
-        border: buttonBorder,
-        borderRadius: '3px',
-        backgroundColor: buttonColor,
-        color: buttonTextColor,
-        cursor: 'pointer',
-      }}
-    >
+    <Button variant={variant} className='fs-md' onClick={clickHandler}>
       <i className={iconName}></i> {text}
-    </button>
+    </Button>
   );
 }
 

@@ -1,13 +1,12 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from './Header';
 import NavigationList from './Navigationlist';
 import ShoppingBag from './ShoppingBag';
 import FavoritesBox from './FavoritesBox';
-import Footer from './Footer';
 import SignInBanner from './SignInBanner';
-import MainBanner from './MainBanner';
+import NavigationBanner from './NavigationBanner';
 import { useContext } from 'react';
 import Context from './Context';
+import { Row, Col } from 'react-bootstrap';
 
 function MainPage({
   cart,
@@ -32,15 +31,9 @@ function MainPage({
   const inRequestSigninPage = useLocation().pathname === '/requestSignin';
 
   return (
-    <>
+    <Row>
       <NavigationList startSearch={startSearch} searchValue={searchValue} />
-      <div
-        className='d-inline-block'
-        style={{
-          width: '800px',
-          verticalAlign: 'text-top',
-        }}
-      >
+      <Col md={7}>
         {!value.isLogin &&
           !inRegisterPage &&
           !inLoginPage &&
@@ -51,16 +44,10 @@ function MainPage({
           !inAccountPage &&
           !inRequestSigninPage &&
           !inFavoritesPage &&
-          !inShoppingBagpage && <MainBanner />}
+          !inShoppingBagpage && <NavigationBanner />}
         <Outlet />
-      </div>
-      <div
-        className='d-inline-block'
-        style={{
-          verticalAlign: 'text-top',
-          marginLeft: '60px',
-        }}
-      >
+      </Col>
+      <Col md={3}>
         {!inShoppingBagpage &&
           !inAccountPage &&
           !inRegisterPage &&
@@ -97,9 +84,8 @@ function MainPage({
               itemBoxWidth='100%'
             />
           )}
-      </div>
-      <Footer />
-    </>
+      </Col>
+    </Row>
   );
 }
 

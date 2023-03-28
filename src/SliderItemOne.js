@@ -26,7 +26,7 @@ function SliderItemOne() {
         >
           Discount for our members will end in
         </p>
-        <Timer date={new Date('Fri, 5 Mar 2023 00:00:00')} />
+        <Timer date={new Date('Fri, 31 Mar 2023 00:00:00')} />
         <p
           className='no-margin text-align-center font-weight-bold'
           style={{

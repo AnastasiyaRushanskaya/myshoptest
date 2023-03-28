@@ -2,6 +2,8 @@
 
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+/* @import banner from './images/banner.jpeg'; */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -33,18 +35,9 @@ code {
   text-decoration: underline;
 }
 
-.big {
-  width: 43.75%;
-}
-
-.small {
-  width: 27%;
-}
-
 .errorMessage {
   margin: 0;
   font-size: 0.6em;
-  color: red;
 }
 
 .errorMessage::before {
@@ -103,7 +96,7 @@ code {
   margin: 0;
 }
 
-.justify-content-spacw-between {
+.justify-content-space-between {
   justify-content: space-between;
 }
 
@@ -122,4 +115,27 @@ code {
 
 .searchinput:focus {
   outline: none;
+}
+
+.fs-sm {
+  font-size: 0.7rem;
+}
+
+.fs-md {
+  font-size: 0.8rem;
+}
+
+.sign-in-banner {
+  height: 150px;
+  margin-bottom: 10px;
+  background: #f7efe7;
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.navigation-banner {
+  height: 200px;
 }

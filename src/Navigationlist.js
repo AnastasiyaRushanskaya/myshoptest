@@ -1,7 +1,7 @@
 import React from 'react';
 import menuList from './menuList';
 import SearchBox from './SearchBox';
-import { Nav } from 'react-bootstrap';
+import { Col, Nav, Row } from 'react-bootstrap';
 
 function NavigationList({ startSearch, searchValue }) {
   const items = menuList.map((item, index) => {
@@ -9,25 +9,31 @@ function NavigationList({ startSearch, searchValue }) {
       <Nav.Link
         key={index}
         href={item === 'All products' ? '/' : `/${item.split(' ').join('_')}`}
-        className='linkStyles'
+        className='linkStyles px-1'
       >
         {item}
       </Nav.Link>
     );
   });
+
   return (
-    <div
-      className='d-inline-block mx-3'
-      style={{
-        width: '260px',
-        verticalAlign: 'text-top',
-      }}
-    >
+    <Col md={2}>
       <SearchBox startSearch={startSearch} searchValue={searchValue} />
       <Nav defaultActiveKey='/#' className='flex-column'>
         {items}
       </Nav>
-    </div>
+    </Col>
+
+    // <Row md={2} className='d-flex'>
+    //   <Col xs={12}>
+    //     <SearchBox startSearch={startSearch} searchValue={searchValue} />
+    //   </Col>
+    //   <Col xs={12}>
+    //     <Nav defaultActiveKey='/#' className='flex-row'>
+    //       {items}
+    //     </Nav>
+    //   </Col>
+    // </Row>
   );
 }
 

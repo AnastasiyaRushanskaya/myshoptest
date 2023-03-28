@@ -27,8 +27,8 @@ function FavoritesBox({
           <i className='bi bi-bag-heart'></i> Your Favorites ({products.length})
         </Link>
       </h4>
-      {inFavoritesPage && isEmpty(products) && (
-        <p className='text-align-center'>Your shopping bag is empty.</p>
+      {isEmpty(products) && (
+        <p className='text-align-center my-3'>No items added to favorites.</p>
       )}
       <FavoritesList
         products={products}

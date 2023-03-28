@@ -50,7 +50,7 @@ function AccountPage() {
         ]}
       />
       <AccountDetails />
-      <section className='d-flex justify-content-spacw-between'>
+      <section className='d-flex justify-content-space-between'>
         <CustomButton
           text='My shopping bag'
           clickHandler={() => navigate('/shoppingbag')}

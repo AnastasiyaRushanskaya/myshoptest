@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
 
 function ProductsListHeader({
   products,
@@ -12,75 +13,35 @@ function ProductsListHeader({
   const itemsCategory = currentLocation.pathname.slice(1).replace('_', ' ');
 
   return (
-    <div
-      className='d-flex align-items-center justify-content-spacw-between '
-      style={{
-        height: 'auto',
-        marginTop: '5px',
-      }}
-    >
-      <div
-        className='font-weight-bold'
-        style={{
-          width: '30%',
-          fontSize: '0.7em',
-        }}
-      >
+    <Row className='text-center fs-md py-1'>
+      <Col xs={6} md={4}>
         {itemsCategory || 'All products'}
-      </div>
-      <div
-        className='text-align-center font-weight-bold'
-        style={{
-          width: '30%',
-          fontSize: '0.7em',
-        }}
-      >
+      </Col>
+      <Col xs={6} md={4}>
         {products.length} items
-      </div>
-      <div
-        style={{
-          width: '30%',
-          textAlign: 'end',
-        }}
-      >
-        <div
-          className='d-inline-block c-pointer'
-          style={{
-            paddingLeft: '10px',
-          }}
-          onClick={changeSizeToBig}
-        >
+      </Col>
+      <Col md={4} className='d-none d-sm-flex'>
+        <Col xs={6} onClick={changeSizeToBig} className='text-end px-1'>
           <i
             className={twoItemsInLine ? 'bi bi-square-fill' : 'bi bi-square'}
-            style={{ paddingLeft: '1px' }}
           ></i>
           <i
             className={twoItemsInLine ? 'bi bi-square-fill' : 'bi bi-square'}
-            style={{ paddingLeft: '1px' }}
           ></i>
-        </div>
-        <div
-          className='d-inline-block c-pointer'
-          style={{
-            paddingLeft: '10px',
-          }}
-          onClick={changeSizeToSmall}
-        >
+        </Col>
+        <Col xs={6} onClick={changeSizeToSmall} className='text-start'>
           <i
             className={threeItemsInLine ? 'bi bi-square-fill' : 'bi bi-square'}
-            style={{ paddingLeft: '1px' }}
           ></i>
           <i
             className={threeItemsInLine ? 'bi bi-square-fill' : 'bi bi-square'}
-            style={{ paddingLeft: '1px' }}
           ></i>
           <i
             className={threeItemsInLine ? 'bi bi-square-fill' : 'bi bi-square'}
-            style={{ paddingLeft: '1px' }}
           ></i>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Col>
+    </Row>
   );
 }
 

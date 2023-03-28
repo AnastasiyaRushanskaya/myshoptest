@@ -120,7 +120,7 @@ vouchers.'
               <p className={'errorMessage'}>This field is required</p>
             </div>
           )}
-          <div className='d-flex justify-content-spacw-between'>
+          <div className='d-flex justify-content-space-between'>
             <LoginAndRegisterCheckbox text='Remember me' />
             <Link to='/requestSignin' className='linkStyles'>
               <p

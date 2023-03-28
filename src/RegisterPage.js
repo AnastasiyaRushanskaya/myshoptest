@@ -104,7 +104,7 @@ vouchers.'
         />
         <div style={{ height: '15px' }}>
           {errors.email && (
-            <p className={'errorMessage'}>{errors.email.message}</p>
+            <p className={'errorMessage red'}>{errors.email.message}</p>
           )}
         </div>
         <LoginAndRegisterInputBoxName name='Create password' color='red' />
@@ -155,12 +155,12 @@ vouchers.'
             </p>
           )}
           {errors.password && (
-            <p className={'errorMessage'}>{errors.password.message}</p>
+            <p className={'errorMessage red'}>{errors.password.message}</p>
           )}
         </div>
 
         <LoginAndRegisterInputBoxName name='Date of Birth' color='red' />
-        <div className='d-flex flex-wrap-w justify-content-spacw-between'>
+        <div className='d-flex flex-wrap-w justify-content-space-between'>
           <div style={{ width: '30%' }}>
             <input
               name='dayOfBirth'
@@ -217,9 +217,9 @@ vouchers.'
 
           <div style={{ height: '15px', width: '100%' }}>
             {errors.yearOfBirth ? (
-              <p className={'errorMessage'}>{errors.yearOfBirth.message}</p>
+              <p className={'errorMessage red'}>{errors.yearOfBirth.message}</p>
             ) : errors.dayOfBirth ? (
-              <p className={'errorMessage'}>
+              <p className={'errorMessage red'}>
                 Please provide your date of birth for a better membership
                 experience.
               </p>

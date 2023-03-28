@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import ShoppingBagProductBox from './ShoppingBagProductBox';
 
 function ShoppingBagList({
@@ -7,7 +8,6 @@ function ShoppingBagList({
   toggleInFavorites,
   checkIsInFavorites,
   changeQuantityValue,
-  itemBoxWidth,
 }) {
   const items = products.map((item, index) => {
     const inFavorites = checkIsInFavorites(item.id);
@@ -19,21 +19,10 @@ function ShoppingBagList({
         removeFromCart={() => removeFromCart(index)}
         toggleInFavorites={toggleInFavorites}
         changeQuantityValue={changeQuantityValue}
-        itemBoxWidth={itemBoxWidth}
       />
     );
   });
-  return (
-    <div
-      className='d-flex flex-wrap-w'
-      style={{
-        height: 'auto',
-      }}
-    >
-      {' '}
-      {items}
-    </div>
-  );
+  return <Row xs={1}>{items}</Row>;
 }
 
 export default ShoppingBagList;

@@ -5,8 +5,15 @@ function SearchBox({ searchValue, startSearch }) {
   return (
     <InputGroup
       size='sm'
-      className='mb-2 searchinput'
-      style={{ ':focus': { outline: '0' } }}
+      className='mb-2 msearchinput'
+      style={{
+        // width: '100%',
+        outline: 'none',
+        borderTop: '#faf9f8',
+        borderRight: '#faf9f8',
+        borderLeft: '#faf9f8',
+        backgroundColor: '#faf9f8',
+      }}
     >
       <Form.Control
         placeholder='Search products'
@@ -20,14 +27,14 @@ function SearchBox({ searchValue, startSearch }) {
     //   value={searchValue}
     //   onChange={startSearch}
     //   style={{
-    //     width: '120px',
-    //     marginBottom: '20px',
-    //     outline: 'none',
-    //     borderTop: '#faf9f8',
-    //     borderRight: '#faf9f8',
-    //     borderLeft: '#faf9f8',
-    //     borderBottom: '1px solid grey',
-    //     backgroundColor: '#faf9f8',
+    // width: '120px',
+    // marginBottom: '20px',
+    // outline: 'none',
+    // borderTop: '#faf9f8',
+    // borderRight: '#faf9f8',
+    // borderLeft: '#faf9f8',
+    // borderBottom: '1px solid grey',
+    // backgroundColor: '#faf9f8',
     //   }}
     // />
   );

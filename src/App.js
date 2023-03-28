@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Context from './Context';
 import productArray from './productArray';
 import ProductList from './ProductsList';
@@ -25,6 +25,7 @@ import {
 } from './categoryTypes';
 import { Container, Toast } from 'react-bootstrap';
 import Header from './Header';
+import Footer from './Footer';
 
 function App() {
   const products = productArray;
@@ -181,8 +182,8 @@ function App() {
   }
   return (
     <Context.Provider value={value}>
-      <Container>
-        {addedItemName && (
+      <Container fluid>
+        {/* {addedItemName && (
           <Toast>
             {' '}
             <Toast.Header>
@@ -192,7 +193,7 @@ function App() {
               <strong>{addedItemName} </strong>added to your shopping bag
             </Toast.Body>
           </Toast>
-        )}
+        )} */}
         {sizeErrorMessage && (
           <div
             className='size-error-message text-align-center'
@@ -209,7 +210,6 @@ function App() {
 
         <BrowserRouter>
           <Header
-            text='My Shop'
             shoppingBagItemsNumber={shoppingBagItemsNumber}
             favorites={favorites}
           />
@@ -446,6 +446,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+        <Footer />
       </Container>
     </Context.Provider>
   );
